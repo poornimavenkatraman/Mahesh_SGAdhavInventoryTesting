@@ -1,0 +1,8 @@
+/* src/assets/main.css (or your main CSS file) */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add your own custom CSS here if needed,
+   but most styles should come from Tailwind classes directly in your HTML/Vue. */

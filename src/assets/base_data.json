@@ -1,0 +1,409 @@
+{
+  "categories": [
+    {
+      "name": "Carpentry",
+      "subcategories": [
+        {
+          "name": "Main door (Antique)",
+          "materials": [
+            "5 inch inches",
+            "8 inch Tower Bolt",
+            "6 inch Tower Bolt",
+            "8 inch Handle",
+            "6 inch Handle",
+            "Main Door Lock",
+            "Door Guard",
+            "Magnet",
+            "Screw 32 X 8",
+            "Screw 6 X 19",
+            "Main Door Eye",
+            "Door Stopper"
+          ]
+        },
+        {
+          "name": "Bedroom, Bathroom, Balcony (SS)",
+          "materials": [
+            "8 inch Tower Bold",
+            "Cylinder Lock - (Bedroom)",
+            "Door Magnet",
+            "Screw 30 X 4",
+            "5 inch Inches (1 1/4) (Bed Room Door)",
+            "4 inch Tower Bolt SS",
+            "4 inch Handle SS",
+            "8 inch Handle (Heavy)"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Electrical",
+      "subcategories": [
+        {
+          "name": "Electrical Pipe Items",
+          "materials": [
+            "3/4 inch Bend",
+            "1 inch J.Box",
+            "1 inch Deep J.Box",
+            "3/4 inch J.Box 3 Way",
+            "3/4 inch J.Box",
+            "3/4 inch Deep J.Box",
+            "1 inch Coupling",
+            "3/4 inch Coupling",
+            "Fan Box"
+          ]
+        },
+        {
+          "name": "Model Metal Box",
+          "materials": [
+            "12 Model Metal Box",
+            "8 Model Metal Box",
+            "6 Model Metal Box",
+            "4 Model Metal Box",
+            "3 Model Metal Box",
+            "2 Model Metal Box"
+          ]
+        },
+        {
+          "name": "Model Plate",
+          "materials": [
+            "2 Model Plate",
+            "3 Model Plate",
+            "4 Model Plate",
+            "6 Model Plate",
+            "8 Model Plate",
+            "12 Model Plate"
+          ]
+        },
+        {
+          "name": "Switches & Others",
+          "materials": [
+            "6 Amps Switch",
+            "6 Amps Socket",
+            "16 Amps Switch With Indicator",
+            "16 Amps Socket",
+            "25 Amps Socket A/C",
+            "6 Amps 2 Way Switch",
+            "32 Amps D.B.Switch A/C",
+            "40 Amps 4 Pole Isolator",
+            "63 Amps Isolator",
+            "MCB 25",
+            "MCB 10",
+            "40 Amps 4 Pole R.C.C.B",
+            "60 Amps 4 Pole R.C.C.B",
+            "MCB Dummy",
+            "6 Amps 2 Pole MCB",
+            "6 Way DB Box",
+            "6 Amps Bell Switch",
+            "Ceiling Rose",
+            "Angle Holder",
+            "Regulator Step - Fan",
+            "Earth Link",
+            "Switch Dummy",
+            "Open Surface 7W (GM)",
+            "J.Box Light",
+            "Bottle Trap",
+            "Cut Out",
+            "Round Sheet",
+            "63 Amps Rotatory Switch",
+            "40 Amps Rotatory Switch"
+          ]
+        },
+        {
+          "name": "Coils",
+          "materials": [
+            "1 Sqmm Red",
+            "1 Sqmm Blue",
+            "1 Sqmm Yellow",
+            "1 Sqmm Black",
+            "1 Sqmm Green",
+            "1.5 Sqmm Grey",
+            "1.5 Sqmm Blue",
+            "2.5 Sqmm Red",
+            "2.5 Sqmm Blue",
+            "2.5 Sqmm Yellow",
+            "2.5 Sqmm Black",
+            "4 Sqmm Red",
+            "4 Sqmm Black",
+            "6 Sqmm Red",
+            "6 Sqmm Black"
+          ]
+        },
+        {
+          "name": "Light Items",
+          "materials": [
+            "Tube Light",
+            "Spot Light (Warm White)",
+            "Spot Light (White)",
+            "Open Surface (Warm White)",
+            "Open Surface (White)",
+            "Striker Light",
+            "9W Light",
+            "Ex Fan (7 1/2 X 7 1/2)",
+            "1 inch Tube Light (White)",
+            "Angle Spot Light",
+            "Bulk Head Light",
+            "Fan"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Plumbing",
+      "subcategories": [
+        {
+          "name": "PVC",
+          "materials": [
+            "1 1/2 inch PVC Bend",
+            "2 1/2 inch PVC Coupling",
+            "1 1/2 inch PVC Coupling",
+            "3/4 inch PVC Coupling",
+            "1 1/4 inch PVC Coupling",
+            "1 1/4 inch PVC Elbow",
+            "1 1/2 inch GI Elbow",
+            "1 1/4 inch PVC End Cup",
+            "1 1/4 inch GI Elbow",
+            "1 inch GI Elbow",
+            "1 X 1/2 inch PVC Brass Elbow",
+            "3/4 X 1/2 inch Brass Elbow",
+            "1/2 inch PVC Elbow",
+            "1 inch Flange",
+            "1 1/4 inch PVC Flange",
+            "1 X 3/4 inch FTA",
+            "1 X 3/4 inch PVC FTA",
+            "3/4 inch PVC FTA",
+            "1 1/4 inch PVC FTA",
+            "1 1/2 inch PVC TEE",
+            "1 inch PVC Thread TEE",
+            "3/4 inch TEE",
+            "1 X 3/4 inch Thread TEE",
+            "1 X 1/2 inch PVC Brass TEE",
+            "1 X 1/2 inch Brass TEE",
+            "3/4 inch PVC TEE",
+            "1 1/4 inch PVC TEE",
+            "1 1/4 inch PVC Door TEE",
+            "1 X 3/4 inch PVC Thread TEE",
+            "1 X 1/2 inch PVC Brass TEE",
+            "1 1/2 inch PVC MTA",
+            "1 inch PVC MTA",
+            "1 1/4 inch PVC MTA",
+            "1 1/2 X 1 1/4 inch PVC Reducer",
+            "1 X 1/2 inch PVC Brass Reducer",
+            "1 X 3/4 inch PVC Reducer",
+            "1 1/4 X 1 inch PVC Reducer",
+            "1 X 3/4 inch PVC Bush",
+            "1 1/4 X 1 inch PVC Bush",
+            "1 1/4 X 3/4 inch PVC Bush",
+            "1 1/2 X 1 1/4 inch PVC Bush",
+            "1 1/2 X 3/4 inch PVC Bush",
+            "1 1/2 X 1 inch PVC Bush",
+            "1 1/4 inch PVC Shoe",
+            "1 inch BARE Nipple",
+            "4 inch Pipe 4 KG",
+            "2 1/2 inch Pipe 6 KG",
+            "2 1/2 inch Pipe 4 KG",
+            "1 1/2 inch Pipe 15 KG",
+            "1 1/4 inch Pipe",
+            "1 inch Pipe",
+            "3/4 inch Pipe",
+            "1 inch PVC Elbow",
+            "1 inch SP Clamp",
+            "2 1/2 inch SP Clamp",
+            "4 inch PVC Shoe",
+            "2 1/2 inch PVC Shoe",
+            "4 inch SP Clamp",
+            "1 1/2 inch SP Clamp",
+            "1 1/2 inch PVC Door TEE",
+            "1 1/2 inch PVC Door Elbow",
+            "1 1/2 inch PVC Coupling",
+            "1 1/2 inch PVC Elbow",
+            "4 inch PVC Door Elbow",
+            "4 inch PVC Door TEE",
+            "4 inch PVC Elbow",
+            "4 inch PVC TEE",
+            "4 inch PVC YEE",
+            "4 inch PVC Coupling",
+            "4 inch PVC Dummy Drop",
+            "2 1/2 inch PVC Coupling",
+            "2 1/2 inch PVC Elbow",
+            "2 1/2 inch PVC Door Elbow",
+            "2 1/2 inch PVC Door TEE",
+            "2 1/2 inch PVC Door YEE",
+            "2 1/2 inch Floor Drop",
+            "2 1/2 x 1 1/2 inch Reducer",
+            "2 1/2 inch Dummy",
+            "Hacksaw Blade",
+            "1 inch Brass Ball VALVE (HEAVY)",
+            "1 inch PVC MTA",
+            "1 1/4 inch PVC MTA",
+            "1 inch PVC TEE",
+            "1 inch PVC End Cup",
+            "1 1/4 inch PVC Elbow",
+            "1 inch PVC Coupling",
+            "1 1/2 inch PVC Coupling",
+            "1 1/2 inch PVC End Cup",
+            "3/4 inch PVC Elbow",
+            "3/4 inch PVC TEE",
+            "3/4 inch PVC Coupling",
+            "3/4 inch PVC End Cup",
+            "THIRED Ball",
+            "1 inch GI Elbow",
+            "1 1/4 inch GI Elbow",
+            "1 inch Flange Seat",
+            "1 1/4 inch Flange Seat",
+            "1 x 1/2 inch PVC Brass TEE",
+            "1 x 1/2 inch PVC Elbow",
+            "3/4 x 1/2 inch PVC Brass Elbow",
+            "Motor Clamp",
+            "8MM Anchor Fastner Bold",
+            "2 inch MOTOR BOLD 3x8",
+            "1 1/4 inch PVC Coupling Long",
+            "4 x 2 1/2 inch PVC Bush",
+            "1 inch PVC Offset",
+            "3/4 inch PVC Offset",
+            "4 inch P TRAP PENGAN"
+          ]
+        },
+        {
+          "name": "CPVC",
+          "materials": [
+            "3/4 inch CPVC End Cup",
+            "3/4 inch CPVC FTA",
+            "3/4 inch Offset",
+            "3/4 inch Elbow",
+            "3/4 inch TEE",
+            "3/4 x 1/2 inch Plain TEE",
+            "3/4 x 3/4 inch Bush",
+            "1 x 3/4 inch Bush",
+            "3/4 inch Dummy",
+            "3/4 inch MTA",
+            "3/4 inch Coupling",
+            "3/4 inch CPVC Pipe",
+            "3/4 inch CPVC Elbow",
+            "3/4 inch CPVC Adapter",
+            "3/4 x 1/2 inch CPVC Brass TEE",
+            "3/4 x 1/2 inch CPVC Elbow",
+            "3/4 x 1/2 inch CPVC Reducer"
+          ]
+        },
+        {
+          "name": "UPVC",
+          "materials": [
+            "1 X 3/4 inch UPVC Bush",
+            "CPVC End Cup",
+            "3/4 inch UPVC Elbow",
+            "1 inch UPVC Elbow",
+            "3/4 X 1/2 inch UPVC Elbow",
+            "1 inch UPVC End Cup",
+            "1 inch UPVC Coupling",
+            "3/4 inch UPVC Coupling",
+            "1 inch UPVC TEE",
+            "3/4 inch UPVC TEE",
+            "1 X 1/2 inch UPVC Brass TEE",
+            "3/4 X 1/2 inch UPVC Reducer",
+            "1 X 3/4 inch UPVC Reducer",
+            "1 inch UPVC Shoe",
+            "1 1/4 inch Union",
+            "1 1/4 inch Elbow",
+            "1 1/4 inch FTA",
+            "1 1/4 inch MTA",
+            "1 1/4 inch Coupling",
+            "1 inch Union",
+            "1 inch FTA",
+            "1 inch MTA",
+            "1 inch Dummy",
+            "1 x 3/4 inch TEE",
+            "3/4 x 1/2 inch FTA"
+          ]
+        }
+      ]
+    }
+  ],
+  "sites": [
+    {
+      "name": "Pallava Gardens",
+      "location": "Padur",
+      "city": "Chennai",
+      "start_date": "2024-02-24",
+      "end_date": "2027-09-30",
+      "status": "Active",
+      "is_archived": false
+    },
+    {
+      "name": "Thendral",
+      "location": "Thazhambur",
+      "city": "Chennai",
+      "start_date": "2024-09-28",
+      "end_date": "2027-09-30",
+      "status": "Active",
+      "is_archived": false
+    },
+    {
+      "name": "The Empire",
+      "location": "Madipakkam",
+      "city": "Chennai",
+      "start_date": "2024-04-30",
+      "end_date": "2027-09-30",
+      "status": "Active",
+      "is_archived": false
+    },
+    {
+      "name": "Sri Mythri",
+      "location": "Kovilambakkam",
+      "city": "Chennai",
+      "start_date": "2025-02-02",
+      "end_date": "2027-09-30",
+      "status": "Active",
+      "is_archived": false
+    }
+  ],
+  "suppliers": [
+    "Apex Building Materials",
+    "United Construction Supply",
+    "Prime Concrete & Steel",
+    "Global Industrial Solutions",
+    "Relian Resource Group",
+    "Horizon Hardware Distributors",
+    "Northern Lumber & Tools",
+    "Titanium Infrastructure Supplies",
+    "Legacy Logistics & Materials",
+    "Solid Ground Distributors"
+  ],
+  "users": [
+    {
+      "name": "Amal",
+      "email": "admin@sgadhavbuilders.com",
+      "role": "Management",
+      "password": "management"
+    },
+    {
+      "name": "Srimathi",
+      "email": "hostaff@sgadhavbuilders.com",
+      "role": "HO Staff",
+      "password": "ho1234"
+    },
+    {
+      "name": "Siva",
+      "email": "Thendral_site_staff@sgadhavbuilders.com",
+      "role": "Site Staff",
+      "password": "Thendral"
+    },
+    {
+      "name": "Ajith",
+      "email": "Empire_site_staff@sgadhavbuilders.com",
+      "role": "Site Staff",
+      "password": "Empire"
+    },
+    {
+      "name": "Kamal",
+      "email": "Pallava_Gardens_site_staff@sgadhavbuilders.com",
+      "role": "Site Staff",
+      "password": "Pallava123"
+    },
+    {
+      "name": "Rajini",
+      "email": "Sri_Mythri_site_staff@sgadhavbuilders.com",
+      "role": "Site Staff",
+      "password": "Sri123"
+    }
+  ]
+}

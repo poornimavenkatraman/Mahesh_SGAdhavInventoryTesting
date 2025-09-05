@@ -1,0 +1,7 @@
+node_modules
+src/pages/backups/
+src/router/backup/
+src/components/backups/
+src/services/backup/
+src/assets/backup/
+src/firebase.ts
