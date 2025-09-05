@@ -9,7 +9,7 @@
         <li v-if="route.query.root_page == 'Home'">
           <router-link
             to="/home"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-home mr-1"></i> Home
           </router-link>
@@ -17,32 +17,32 @@
         <li v-if="route.query.root_page == 'Sites'">
           <router-link
             to="/sites"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-city mr-1"></i> Sites
           </router-link>
         </li>
         <li v-if="route.query.root_page == 'Sites' && route.query.siteId">
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li v-if="route.query.root_page == 'Sites' && route.query.siteId">
           <router-link
             :to="`/sites/${route.query.siteId}`"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-building mr-1"></i> {{ route.query.site }}
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i
@@ -59,9 +59,9 @@
       </ol>
     </nav>
     <div class="flex items-center gap-3 mb-1 p-3">
-      <div class="bg-teal-200 rounded-full p-2">
+      <div class="bg-red-200 rounded-full p-2">
         <i
-          class="text-xl text-teal-700"
+          class="text-xl text-red-700"
           :class="
             pageType == 'Recent Activity'
               ? 'fas fa-history'
@@ -69,25 +69,25 @@
           "
         ></i>
       </div>
-      <h2 class="text-lg font-bold text-teal-700">
+      <h2 class="text-lg font-bold text-red-700">
         {{ pageType }}
       </h2>
     </div>
 
     <div class="px-4">
       <div class="max-w-3xl">
-        <div class="text-teal-700 font-semibold text-lg mb-2">Filters</div>
+        <div class="text-red-700 font-semibold text-lg mb-2">Filters</div>
         <div class="mb-2 flex flex-wrap gap-4 items-center">
           <input
             v-model="filterBy"
             type="text"
             placeholder="Requested By..."
-            class="flex-1 min-w-[140px] border border-teal-200 rounded px-3 py-2 font-semibold text-teal-700 bg-white shadow-sm"
+            class="flex-1 min-w-[140px] border border-red-200 rounded px-3 py-2 font-semibold text-red-700 bg-white shadow-sm"
           />
           <select
             v-model="filterSite"
             :disabled="!!route.query.site"
-            class="flex-1 min-w-[140px] border border-teal-200 rounded px-3 py-2 font-semibold text-teal-700 bg-white shadow-sm"
+            class="flex-1 min-w-[140px] border border-red-200 rounded px-3 py-2 font-semibold text-red-700 bg-white shadow-sm"
           >
             <option value="">All Sites</option>
             <option v-for="site in uniqueSites" :key="site" :value="site">
@@ -96,7 +96,7 @@
           </select>
           <select
             v-model="filterType"
-            class="flex-1 min-w-[140px] border border-teal-200 rounded px-3 py-2 font-semibold text-teal-700 bg-white shadow-sm"
+            class="flex-1 min-w-[140px] border border-red-200 rounded px-3 py-2 font-semibold text-red-700 bg-white shadow-sm"
           >
             <option value="">Request Type</option>
             <option value="Bulk">Bulk</option>
@@ -121,13 +121,13 @@
           <input
             v-model="dateRange.start"
             type="date"
-            class="flex-1 border border-teal-200 rounded px-3 py-2 font-semibold text-teal-700 bg-white shadow-sm"
+            class="flex-1 border border-red-200 rounded px-3 py-2 font-semibold text-red-700 bg-white shadow-sm"
           />
           <span class="text-gray-500 font-semibold">to</span>
           <input
             v-model="dateRange.end"
             type="date"
-            class="flex-1 border border-teal-200 rounded px-3 py-2 font-semibold text-teal-700 bg-white shadow-sm"
+            class="flex-1 border border-red-200 rounded px-3 py-2 font-semibold text-red-700 bg-white shadow-sm"
           />
         </div>
       </div>
@@ -135,10 +135,10 @@
       <!-- Requests Table -->
       <div class="overflow-x-auto">
         <table
-          class="min-w-full bg-white rounded-xl shadow-md border border-teal-100"
+          class="min-w-full bg-white rounded-xl shadow-md border border-red-100"
         >
           <thead>
-            <tr class="text-teal-800 table-header-gradient">
+            <tr class="text-red-800 table-header-gradient">
               <th
                 v-for="col in [
                   'id',
@@ -151,8 +151,8 @@
                 ]"
                 :key="col"
                 @click="setSort(col)"
-                class="py-3 px-4 text-left font-bold cursor-pointer hover:bg-teal-300 transition"
-                :class="col === 'id' ? 'border-l-1 border-teal-200' : ''"
+                class="py-3 px-4 text-left font-bold cursor-pointer hover:bg-red-300 transition"
+                :class="col === 'id' ? 'border-l-1 border-red-200' : ''"
               >
                 {{
                   col === "id"
@@ -176,17 +176,17 @@
                 @click="toggleExpand(req.id)"
               >
                 <td
-                  class="py-2 px-4 border-l-1 border-teal-200 font-semibold text-gray-700"
+                  class="py-2 px-4 border-l-1 border-red-200 font-semibold text-gray-700"
                 >
                   {{ req.id ?? "" }}
                 </td>
-                <td class="py-2 px-4 font-semibold text-teal-700">
+                <td class="py-2 px-4 font-semibold text-red-700">
                   {{ req.site ?? "" }}
                 </td>
-                <td class="py-2 px-4 text-teal-600 font-semibold">
+                <td class="py-2 px-4 text-red-600 font-semibold">
                   {{ req.type ?? "" }}
                 </td>
-                <td class="py-2 px-4 text-teal-600 font-semibold">
+                <td class="py-2 px-4 text-red-600 font-semibold">
                   {{ req.noOfMaterials ?? "" }}
                 </td>
                 <td class="py-2 px-4 text-gray-600 font-semibold">
@@ -206,7 +206,7 @@
                         : req.status === 'Dispatched'
                         ? 'bg-green-100 text-green-700'
                         : req.status === 'Received'
-                        ? 'bg-blue-100 text-blue-700'
+                        ? 'bg-red-100 text-red-700'
                         : req.status === 'Consumed'
                         ? 'bg-lime-100 text-lime-700'
                         : req.status === 'Returned'
@@ -214,7 +214,7 @@
                         : req.status === 'Return Cancelled'
                         ? 'bg-red-100 text-red-700'
                         : req.status === 'Return Declined'
-                        ? 'bg-teal-100 text-teal-700'
+                        ? 'bg-red-100 text-red-700'
                         : req.status === 'Restock Request'
                         ? 'bg-orange-100 text-orange-700'
                         : req.status === 'Restocked'
@@ -227,10 +227,10 @@
                     {{ req.status ?? "" }}
                   </span>
                 </td>
-                <td class="py-2 px-4 flex gap-2 border-teal-50">
+                <td class="py-2 px-4 flex gap-2 border-red-50">
                   <button
                     @click.stop="viewDetails(req)"
-                    class="bg-teal-500 hover:bg-teal-700 text-white px-3 py-1 rounded shadow flex items-center gap-1 font-semibold"
+                    class="bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded shadow flex items-center gap-1 font-semibold"
                     title="View Details"
                   >
                     <i class="fas fa-eye"></i>
@@ -240,11 +240,11 @@
               <!-- Expanded Row -->
               <tr
                 v-if="expandedIds.includes(req.id)"
-                class="border-t-2 border-teal-100"
+                class="border-t-2 border-red-100"
               >
                 <td
                   colspan="8"
-                  class="px-6 py-4 border-l-2 border-teal-500 border-b-2 border-r-2"
+                  class="px-6 py-4 border-l-2 border-red-500 border-b-2 border-r-2"
                 >
                   <!-- filepath: c:\Users\akka\Desktop\code\inventory_system\src\pages\SiteRequests.vue -->
                   <WorkflowCard
@@ -260,17 +260,17 @@
       <!-- Pagination Controls -->
       <div class="flex justify-end items-center mt-6 gap-4">
         <button
-          class="px-3 py-1 rounded bg-teal-100 text-teal-700 font-semibold shadow hover:bg-teal-200"
+          class="px-3 py-1 rounded bg-red-100 text-red-700 font-semibold shadow hover:bg-red-200"
           :disabled="currentPage === 1"
           @click="currentPage--"
         >
           Prev
         </button>
-        <span class="font-semibold text-teal-700"
+        <span class="font-semibold text-red-700"
           >Page {{ currentPage }} of {{ totalPages }}</span
         >
         <button
-          class="px-3 py-1 rounded bg-teal-100 text-teal-700 font-semibold shadow hover:bg-teal-200"
+          class="px-3 py-1 rounded bg-red-100 text-red-700 font-semibold shadow hover:bg-red-200"
           :disabled="currentPage === totalPages"
           @click="currentPage++"
         >

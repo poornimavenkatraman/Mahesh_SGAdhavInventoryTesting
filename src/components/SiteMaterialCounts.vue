@@ -1,16 +1,16 @@
 <template>
   <div class="ml-5 p-4 overflow-x-auto">
     <div
-      class="flex items-center justify-between mb-4 p-3 bg-gradient-to-r from-teal-100 to-teal-50 rounded-t-lg shadow"
+      class="flex items-center justify-between mb-4 p-3 bg-gradient-to-r from-red-100 to-red-50 rounded-t-lg shadow"
     >
-      <h2 class="text-base font-semibold text-teal-700">Site Inventory</h2>
+      <h2 class="text-base font-semibold text-red-700">Site Inventory</h2>
     </div>
 
     <div v-if="loading" class="flex flex-col items-center justify-center py-12">
-      <span class="animate-spin text-3xl text-teal-400 mb-2">
+      <span class="animate-spin text-3xl text-red-400 mb-2">
         <i class="fas fa-spinner"></i>
       </span>
-      <span class="text-teal-600 text-base font-semibold"
+      <span class="text-red-600 text-base font-semibold"
         >Loading site inventory...</span
       >
     </div>
@@ -18,12 +18,12 @@
       <div class="flex items-center gap-4 mb-4 w-full max-w-4xl">
         <div class="relative flex-1">
           <i
-            class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-teal-500 text-base"
+            class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-red-500 text-base"
           ></i>
           <InputText
             v-model="search"
             placeholder="Search Inventory..."
-            class="p-inputtext-sm pl-9 text-[11px] w-full rounded border bg-white text-teal-900 border-teal-200 placeholder-teal-400"
+            class="p-inputtext-sm pl-9 text-[11px] w-full rounded border bg-white text-red-900 border-red-200 placeholder-red-400"
             style="
               padding-left: 2.75rem;
               padding-top: 0.5rem;
@@ -56,7 +56,7 @@
         />
         <button
           @click="exportToExcel"
-          class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded shadow flex items-center gap-2 transition-colors"
+          class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded shadow flex items-center gap-2 transition-colors"
         >
           <i class="fas fa-file-excel"></i>
           Export to Excel
@@ -463,6 +463,6 @@ td {
 
 /* Reusable class for teal circle icons in table headers */
 .header-circle-icon {
-  @apply bg-teal-500 font-semibold text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] cursor-pointer shadow transition-shadow;
+  @apply bg-red-500 font-semibold text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] cursor-pointer shadow transition-shadow;
 }
 </style>

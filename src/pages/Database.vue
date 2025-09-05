@@ -22,20 +22,20 @@
       </span>
       <span v-else>Clear Transactional Data</span>
     </button>
-    <h2 class="text-lg font-bold mb-4 text-teal-700">Database Tables</h2>
+    <h2 class="text-lg font-bold mb-4 text-red-700">Database Tables</h2>
     <div
       class="max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-6"
     >
       <div
         v-for="tbl in tableList"
         :key="tbl.name"
-        class="bg-white rounded-xl shadow p-3 border border-teal-100 cursor-pointer hover:shadow-lg transition"
+        class="bg-white rounded-xl shadow p-3 border border-red-100 cursor-pointer hover:shadow-lg transition"
         @click="showTable(tbl.name)"
       >
         <div class="flex items-center gap-2">
-          <i :class="tbl.icon + ' text-lg text-teal-600'"></i>
+          <i :class="tbl.icon + ' text-lg text-red-600'"></i>
           <div>
-            <div class="text-base font-semibold text-teal-800">
+            <div class="text-base font-semibold text-red-800">
               {{ tbl.label }}
             </div>
             <div class="text-gray-500 text-xs">
@@ -53,7 +53,7 @@
         class="mt-4 p-4"
         ref="tableSectionRef"
       >
-        <h3 class="text-base font-bold mb-2 text-teal-700">
+        <h3 class="text-base font-bold mb-2 text-red-700">
           {{ activeTableLabel }}
         </h3>
         <div class="flex flex-wrap gap-2 mb-2">
@@ -63,10 +63,10 @@
               v-model="filterText"
               type="text"
               placeholder="Filter..."
-              class="border border-teal-200 rounded px-2 py-2 text-xs w-56 pl-8"
+              class="border border-red-200 rounded px-2 py-2 text-xs w-56 pl-8"
             />
             <span
-              class="absolute left-2 top-1/2 -translate-y-1/2 text-teal-400 pointer-events-none"
+              class="absolute left-2 top-1/2 -translate-y-1/2 text-red-400 pointer-events-none"
             >
               <i class="fas fa-search"></i>
             </span>
@@ -74,7 +74,7 @@
           <!-- Sort dropdown -->
           <select
             v-model="sortField"
-            class="border border-teal-200 rounded px-2 py-1 text-xs w-56"
+            class="border border-red-200 rounded px-2 py-1 text-xs w-56"
           >
             <option value="">Sort by...</option>
             <option v-for="field in tableFields" :key="field" :value="field">
@@ -85,28 +85,28 @@
           <button
             v-if="sortField"
             @click="sortAsc = !sortAsc"
-            class="ml-1 px-2 py-1 rounded border border-teal-200 text-xs"
+            class="ml-1 px-2 py-1 rounded border border-red-200 text-xs"
           >
             {{ sortAsc ? "▲" : "▼" }}
           </button>
         </div>
         <div
           v-if="loading"
-          class="text-teal-600 flex items-center gap-2 mb-2 text-xs"
+          class="text-red-600 flex items-center gap-2 mb-2 text-xs"
         >
           <i class="fas fa-spinner fa-spin"></i> Loading
           {{ activeTableLabel.toLowerCase() }}...
         </div>
         <div class="">
           <table
-            class="bg-white border border-teal-200 rounded-lg text-xs shadow"
+            class="bg-white border border-red-200 rounded-lg text-xs shadow"
           >
             <thead>
-              <tr class="bg-teal-100">
+              <tr class="bg-red-100">
                 <th
                   v-for="field in tableFields"
                   :key="field"
-                  class="border-b border-teal-200 px-3 py-2 text-teal-700 font-semibold text-start"
+                  class="border-b border-red-200 px-3 py-2 text-red-700 font-semibold text-start"
                 >
                   {{ field }}
                 </th>
@@ -116,12 +116,12 @@
               <tr
                 v-for="row in paginatedRows"
                 :key="row.id"
-                class="hover:bg-teal-50 transition-colors"
+                class="hover:bg-red-50 transition-colors"
               >
                 <td
                   v-for="field in tableFields"
                   :key="field"
-                  class="border-b border-teal-100 px-3 py-2"
+                  class="border-b border-red-100 px-3 py-2"
                 >
                   <span v-if="isTimestamp(row[field])">
                     {{ formatTimestamp(row[field]) }}
@@ -150,26 +150,26 @@
             <button
               @click="currentPage = 1"
               :disabled="currentPage === 1"
-              class="px-3 py-1 rounded bg-teal-500 text-white text-xs disabled:opacity-50"
+              class="px-3 py-1 rounded bg-red-500 text-white text-xs disabled:opacity-50"
             >
               First
             </button>
             <button
               @click="currentPage > 1 ? currentPage-- : null"
-              class="px-3 py-1 rounded bg-teal-500 text-white text-xs disabled:opacity-50"
+              class="px-3 py-1 rounded bg-red-500 text-white text-xs disabled:opacity-50"
             >
               Prev
             </button>
             <button
               @click="currentPage < totalPages ? currentPage++ : null"
-              class="px-3 py-1 rounded bg-teal-500 text-white text-xs disabled:opacity-50"
+              class="px-3 py-1 rounded bg-red-500 text-white text-xs disabled:opacity-50"
             >
               Next
             </button>
             <button
               @click="currentPage = totalPages"
               :disabled="currentPage === totalPages"
-              class="px-3 py-1 rounded bg-teal-500 text-white text-xs disabled:opacity-50"
+              class="px-3 py-1 rounded bg-red-500 text-white text-xs disabled:opacity-50"
             >
               Last
             </button>
@@ -182,7 +182,7 @@
           <button
             :disabled="currentPage === 1"
             @click="currentPage--"
-            class="px-2 py-1 rounded border border-teal-200 text-xs bg-white text-teal-700 disabled:opacity-50"
+            class="px-2 py-1 rounded border border-red-200 text-xs bg-white text-red-700 disabled:opacity-50"
           >
             Prev
           </button>
@@ -190,13 +190,13 @@
           <button
             :disabled="currentPage === totalPages"
             @click="currentPage++"
-            class="px-2 py-1 rounded border border-teal-200 text-xs bg-white text-teal-700 disabled:opacity-50"
+            class="px-2 py-1 rounded border border-red-200 text-xs bg-white text-red-700 disabled:opacity-50"
           >
             Next
           </button>
           <select
             v-model="pageSize"
-            class="ml-2 border border-teal-200 rounded px-2 py-1 text-xs"
+            class="ml-2 border border-red-200 rounded px-2 py-1 text-xs"
           >
             <option v-for="size in [10, 20, 50, 100]" :key="size" :value="size">
               {{ size }} per page

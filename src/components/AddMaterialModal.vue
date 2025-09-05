@@ -12,7 +12,7 @@
       >
         <i class="fas fa-times"></i>
       </button>
-      <h3 class="text-teal-700 font-bold text-lg mb-4 flex items-center">
+      <h3 class="text-red-700 font-bold text-lg mb-4 flex items-center">
         <i class="fas fa-cube mr-2"></i>Add Material
       </h3>
       <label class="block text-xs font-semibold mb-2"
@@ -60,7 +60,7 @@
       <div class="mt-4 flex justify-end">
         <button
           @click="addMaterials"
-          class="bg-teal-700 text-white px-4 py-1 rounded shadow text-xs font-semibold hover:bg-teal-800"
+          class="bg-red-700 text-white px-4 py-1 rounded shadow text-xs font-semibold hover:bg-red-800"
         >
           Add
         </button>

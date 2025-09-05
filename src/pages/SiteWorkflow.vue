@@ -9,7 +9,7 @@
         <li v-if="route.query.root_page == 'Home'">
           <router-link
             to="/home"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-home mr-1"></i> Home
           </router-link>
@@ -17,33 +17,33 @@
         <li v-if="route.query.root_page == 'Sites'">
           <router-link
             to="/sites"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-city mr-1"></i> Sites
           </router-link>
         </li>
         <li v-if="route.query.root_page == 'Sites' && route.query.siteId">
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li v-if="route.query.root_page == 'Sites' && route.query.siteId">
           <router-link
             :to="`/sites/${route.query.siteId}`"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-building mr-1"></i> {{ site?.site }}
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li v-if="route.query.pageType">
           <router-link
             :to="`/home/site_status?page_type=${route.query.pageType}&root_page=${route.query.root_page}&status=${route.query.status}`"
-            class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i
               class="mr-1"
@@ -57,13 +57,13 @@
           </router-link>
         </li>
         <li v-if="route.query.pageType">
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i class="mr-1 fas fa-clipboard-check"></i>
@@ -73,28 +73,28 @@
       </ol>
     </nav>
     <div class="flex items-center gap-3 mb-1 p-3">
-      <div class="bg-teal-200 rounded-full p-2">
-        <i class="text-lg text-teal-700 fas fa-clipboard-check"></i>
+      <div class="bg-red-200 rounded-full p-2">
+        <i class="text-lg text-red-700 fas fa-clipboard-check"></i>
       </div>
-      <h2 class="text-lg font-bold text-teal-700">Site Workflow</h2>
+      <h2 class="text-lg font-bold text-red-700">Site Workflow</h2>
     </div>
 
     <div v-if="isLoading" class="flex items-center justify-center min-h-screen">
-      <span class="animate-spin text-3xl text-teal-400 mb-2">
+      <span class="animate-spin text-3xl text-red-400 mb-2">
         <i class="fas fa-spinner"></i>
       </span>
-      <span class="ml-4 text-teal-700 font-semibold">Loading...</span>
+      <span class="ml-4 text-red-700 font-semibold">Loading...</span>
     </div>
 
     <div v-else class="p-6 pt-3 mt-1">
       <div
-        class="bg-gradient-to-r from-teal-400 to-teal-100 border-1 border-teal-500 px-6 py-3 mb-2 flex items-center gap-2 shadow-lg rounded"
+        class="bg-gradient-to-r from-red-400 to-red-100 border-1 border-red-500 px-6 py-3 mb-2 flex items-center gap-2 shadow-lg rounded"
       >
         <span
-          class="font-bold text-teal-900 flex-1 text-left text-xs tracking-wide"
+          class="font-bold text-red-900 flex-1 text-left text-xs tracking-wide"
         >
           Workflow ID:
-          <span class="font-bold px-3 py-1 text-teal-800 text-[10px]">
+          <span class="font-bold px-3 py-1 text-red-800 text-[10px]">
             {{ workflow?.workflow_tracker_id || "" }}
           </span>
           <span
@@ -105,7 +105,7 @@
               workflow?.current_status === 'Return Cancelled' ||
               workflow?.current_status === 'Return Declined'
                 ? 'bg-red-500 text-white'
-                : 'bg-teal-600 text-white'
+                : 'bg-red-600 text-white'
             "
           >
             {{ workflow?.current_status || "" }}
@@ -113,11 +113,11 @@
         </span>
         <span
           v-if="site?.site && site?.location"
-          class="text-xs text-teal-900 font-semibold ml-auto flex items-center gap-1"
+          class="text-xs text-red-900 font-semibold ml-auto flex items-center gap-1"
         >
-          <i class="fas fa-building text-teal-600"></i> {{ site.site
+          <i class="fas fa-building text-red-600"></i> {{ site.site
           }}<span class="mx-1">|</span
-          ><i class="fas fa-map-marker-alt text-teal-600"></i
+          ><i class="fas fa-map-marker-alt text-red-600"></i
           >{{ site.location }}
         </span>
       </div>
@@ -132,7 +132,7 @@
               subworkflow?.status === 'Return Cancelled' ||
               subworkflow?.status === 'Return Declined'
                 ? 'bg-red-500 text-white'
-                : 'bg-teal-500 text-white'
+                : 'bg-red-500 text-white'
             "
             @click="toggleAccordion(index)"
           >
@@ -155,7 +155,7 @@
           </button>
           <transition name="fade">
             <div v-show="expandedIndices.includes(index)">
-              <div class="bg-teal-50 rounded-b shadow py-4 px-8 mb-6">
+              <div class="bg-red-50 rounded-b shadow py-4 px-8 mb-6">
                 <div
                   :class="[
                     'gap-y-2 gap-x-10 mb-2',
@@ -174,7 +174,7 @@
                   >
                     <div class="flex items-center">
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[80px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[80px]"
                         >Action:</span
                       >
                       <span
@@ -185,7 +185,7 @@
                           subworkflow?.status === 'Return Cancelled' ||
                           subworkflow?.status === 'Return Declined'
                             ? 'bg-red-200 text-red-600'
-                            : 'bg-teal-200 text-teal-700'
+                            : 'bg-red-200 text-red-700'
                         "
                       >
                         {{ subworkflow?.status }}
@@ -193,21 +193,21 @@
                     </div>
                     <div class="flex items-center">
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[80px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[80px]"
                         >Action By:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{ subworkflow?.created_by_user_name || "" }}</span
                       >
                     </div>
                     <div class="flex items-center">
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[80px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[80px]"
                         >Actioned On:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{
                           subworkflow?.created_at
                             ? formatReadableDate(subworkflow.created_at)
@@ -232,11 +232,11 @@
                       v-if="subworkflow?.status == 'Requested'"
                     >
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[90px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[90px]"
                         >Requested Date:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{ formatDate(subworkflow?.request_date) }}</span
                       >
                     </div>
@@ -245,30 +245,30 @@
                       v-if="subworkflow?.status == 'Requested'"
                     >
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[90px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[90px]"
                         >Expected Date:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{ formatDate(subworkflow?.delivery_date) }}</span
                       >
                     </div>
                     <div class="flex mb-3" v-if="subworkflow?.dispatch_date">
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[90px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[90px]"
                         >Dispatch Date:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{ formatDate(subworkflow?.dispatch_date) }}</span
                       >
                     </div>
                     <div class="flex mb-3" v-if="subworkflow?.received_date">
-                      <span class="font-semibold text-teal-700 min-w-[90px]"
+                      <span class="font-semibold text-red-700 min-w-[90px]"
                         >Received Date:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{ formatDate(subworkflow?.received_date) }}</span
                       >
                     </div>
@@ -277,20 +277,20 @@
                       v-if="subworkflow?.status == 'Returned'"
                     >
                       <span
-                        class="font-semibold text-teal-700 mr-2 min-w-[90px]"
+                        class="font-semibold text-red-700 mr-2 min-w-[90px]"
                         >Returned Date:</span
                       >
                       <span
-                        class="ml-8 font-medium text-teal-900 min-w-[90px]"
+                        class="ml-8 font-medium text-red-900 min-w-[90px]"
                         >{{ formatDate(subworkflow?.return_date) }}</span
                       >
                     </div>
                   </div>
                   <div class="flex">
-                    <span class="font-semibold text-teal-700 min-w-[95px]"
+                    <span class="font-semibold text-red-700 min-w-[95px]"
                       >Comments:</span
                     >
-                    <span class="ml-8 font-medium text-teal-900">{{
+                    <span class="ml-8 font-medium text-red-900">{{
                       subworkflow?.comments
                     }}</span>
                   </div>
@@ -307,13 +307,13 @@
         :key="category"
         class="mb-10 px-2 mt-5"
       >
-        <h3 class="text-teal-600 font-bold text-sm mb-4">
+        <h3 class="text-red-600 font-bold text-sm mb-4">
           <i class="fas fa-hard-hat mr-3"></i>{{ category }}
         </h3>
         <div class="overflow-x-auto">
           <table class="w-full text-xs border rounded">
             <thead>
-              <tr class="bg-teal-100 text-teal-700">
+              <tr class="bg-red-100 text-red-700">
                 <th class="py-2 px-3 text-left">Subcategory</th>
                 <th class="py-2 px-3 text-left">Material</th>
                 <th
@@ -343,7 +343,7 @@
                   {{ req?.material }}
                   <span
                     v-if="showMaterialAvailability"
-                    class="ml-2 text-[10px] px-2 py-1 rounded bg-teal-100 text-teal-700 font-semibold"
+                    class="ml-2 text-[10px] px-2 py-1 rounded bg-red-100 text-red-700 font-semibold"
                     >Available at HO: {{ req?.stock_at_ho || 0 }}</span
                   >
                 </td>
@@ -412,7 +412,7 @@
         <div v-if="isActionable">
           <div v-if="submitButtonLabel === 'Dispatch Stock'">
             <div class="flex mb-3">
-              <span class="font-semibold text-teal-700 w-36 text-left"
+              <span class="font-semibold text-red-700 w-36 text-left"
                 >Dispatch Date:<span class="text-red-500 ml-1">*</span></span
               >
               <input
@@ -426,7 +426,7 @@
           </div>
           <div v-if="submitButtonLabel === 'Receive Stock' || submitButtonLabel === 'Accept Stock'">
             <div class="flex mb-3">
-              <span class="font-semibold text-teal-700 w-36 text-left"
+              <span class="font-semibold text-red-700 w-36 text-left"
                 >Received Date:<span class="text-red-500 ml-1">*</span></span
               >
               <input
@@ -438,7 +438,7 @@
               />
             </div>
           </div>
-          <label class="block text-teal-700 font-semibold mb-2"
+          <label class="block text-red-700 font-semibold mb-2"
             >Comments<span class="text-red-500 ml-1">*</span></label
           >
           <textarea
@@ -455,7 +455,7 @@
             :key="submitButtonLabel"
             v-if="isLoading === false && submitButtonLabel"
             @click="checkinStock"
-            class="bg-teal-500 text-white px-4 py-2 rounded font-semibold shadow hover:bg-teal-600 transition"
+            class="bg-red-500 text-white px-4 py-2 rounded font-semibold shadow hover:bg-red-600 transition"
           >
             {{ submitButtonLabel }}
           </button>

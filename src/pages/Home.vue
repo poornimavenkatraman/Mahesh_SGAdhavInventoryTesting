@@ -2,10 +2,10 @@
   <div class="flex flex-col rounded px-4 py-4">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="bg-teal-200 rounded-full p-2">
-          <i class="fas fa-chart-pie text-xl text-teal-700"></i>
+        <div class="bg-red-200 rounded-full p-2">
+          <i class="fas fa-chart-pie text-xl text-red-700"></i>
         </div>
-        <h2 class="text-lg font-bold text-teal-700">Home</h2>
+        <h2 class="text-lg font-bold text-red-700">Home</h2>
       </div>
       <div class="flex gap-0 text-xs p-2">
         <!-- Dispatch Stock to Site (Individual & Bulk) -->
@@ -15,7 +15,7 @@
         >
           <button
             v-if="hasAccess(userRole as Role, 'dispatchStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 border border-teal-200 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 border border-red-200 shadow transition"
             title="Dispatch Stock to Site"
             @click="showDispatchStock = true"
           >
@@ -23,7 +23,7 @@
           </button>
           <button
             v-if="hasAccess(userRole as Role, 'dispatchStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 border border-teal-200 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 border border-red-200 shadow transition"
             title="Dispatch Stock to Site (Bulk)"
             @click="openBulkStockPreset('Dispatch')"
           >
@@ -40,7 +40,7 @@
         >
           <button
             v-if="hasAccess(userRole as Role, 'requestInventory')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
             title="Request Supplier for Restock"
             @click="showRequestSupplier = true"
           >
@@ -49,7 +49,7 @@
           <router-link
             to="/inventory/add-bulk-stock?actionType=Request"
             v-if="hasAccess(userRole as Role, 'requestInventory')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200 flex items-center justify-center"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200 flex items-center justify-center"
             title="Request Supplier for Restock (Bulk)"
           >
             <i class="fas fa-cubes-stacked"></i>
@@ -62,7 +62,7 @@
         >
           <button
             v-if="hasAccess(userRole as Role, 'addSupplier')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
             title="Add Supplier"
             @click="openSupplierModal"
           >
@@ -74,7 +74,7 @@
         <!-- Request Stock from HO -->
         <button
           v-if="hasAccess(userRole as Role, 'requestStock')"
-          class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+          class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
           title="Request Stock from HO"
           @click="showRequestHO = true"
         >
@@ -83,7 +83,7 @@
 
         <button
           v-if="hasAccess(userRole as Role, 'requestStock')"
-          class="ml-2 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+          class="ml-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
           title="Request Stock from HO (Bulk)"
           @click="openBulkStockPreset('Request')"
         >
@@ -92,7 +92,7 @@
 
         <button
           v-if="hasAccess(userRole as Role, 'returnStock')"
-          class="ml-6 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+          class="ml-6 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
           title="Return Stock to HO"
           @click="openReturnStockModal('Return')"
         >
@@ -100,7 +100,7 @@
         </button>
         <button
           v-if="hasAccess(userRole as Role, 'returnStock')"
-          class="ml-2 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+          class="ml-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
           title="Return Stock to HO (Bulk)"
           @click="openBulkStockPreset('Return')"
         >
@@ -109,7 +109,7 @@
 
         <button
           v-if="hasAccess(userRole as Role, 'consumeStock')"
-          class="ml-6 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+          class="ml-6 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
           title="Mark Stock Consumed"
           @click="openReturnStockModal('Consume')"
         >
@@ -117,7 +117,7 @@
         </button>
         <button
           v-if="hasAccess(userRole as Role, 'consumeStock')"
-          class="ml-2 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition border border-teal-200"
+          class="ml-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition border border-red-200"
           title="Mark Stock Consumed (Bulk)"
           @click="openBulkStockPreset('Consume')"
         >
@@ -135,17 +135,17 @@
         <div
           v-for="card in dashboardCards"
           :key="card.label"
-          class="cursor-pointer transition-colors hover:bg-teal-50 hover:shadow-lg bg-white shadow rounded-lg px-3 py-2 flex flex-col items-center border-t-4 border-teal-200"
+          class="cursor-pointer transition-colors hover:bg-red-50 hover:shadow-lg bg-white shadow rounded-lg px-3 py-2 flex flex-col items-center border-t-4 border-red-200"
           @click="handleCardClick(card.type)"
         >
           <div class="my-1">
-            <i :class="card.icon + ' text-lg text-teal-500'" />
+            <i :class="card.icon + ' text-lg text-red-500'" />
           </div>
           <div>
             <span v-if="loadingDashboardCardCounts[card.type].value">
-              <i class="fas fa-spinner animate-spin text-xl text-teal-400"></i>
+              <i class="fas fa-spinner animate-spin text-xl text-red-400"></i>
             </span>
-            <span v-else class="text-xl font-bold text-teal-600">{{
+            <span v-else class="text-xl font-bold text-red-600">{{
               card.count.value
             }}</span>
           </div>
@@ -158,10 +158,10 @@
       <!-- Active Sites Cards (Left Side) -->
       <div class="flex flex-col gap-4 md:w-1/2 min-h-[280px]">
         <div class="flex items-baseline justify-between">
-          <h2 class="text-base font-semibold text-teal-700">Active Sites</h2>
+          <h2 class="text-base font-semibold text-red-700">Active Sites</h2>
           <a
             href="#"
-            class="bg-gradient-to-r from-teal-400 to-teal-600 text-white hover:from-teal-500 hover:to-teal-700 text-[10px] font-semibold px-2 py-1 rounded shadow transition inline-block"
+            class="bg-gradient-to-r from-red-400 to-red-600 text-white hover:from-red-500 hover:to-red-700 text-[10px] font-semibold px-2 py-1 rounded shadow transition inline-block"
             @click.prevent="handleViewAllSites"
           >
             View All
@@ -171,17 +171,17 @@
           v-if="loadingActiveSites"
           class="flex flex-col items-center justify-center py-8"
         >
-          <span class="animate-spin text-3xl text-teal-400 mb-2">
+          <span class="animate-spin text-3xl text-red-400 mb-2">
             <i class="fas fa-spinner"></i>
           </span>
-          <span class="text-teal-600 text-base font-semibold"
+          <span class="text-red-600 text-base font-semibold"
             >Loading active sites...</span
           >
         </div>
         <template v-else>
           <div
             v-if="activeSites.length === 0"
-            class="p-4 bg-teal-50 text-center text-gray-400 border-l-4 border-teal-100 flex-1 flex items-center justify-center min-h-[72px] max-h-[280px] h-[280px]"
+            class="p-4 bg-red-50 text-center text-gray-400 border-l-4 border-red-100 flex-1 flex items-center justify-center min-h-[72px] max-h-[280px] h-[280px]"
           >
             No active sites
           </div>
@@ -189,42 +189,42 @@
             <div
               v-for="site in activeSites.slice(0, 3)"
               :key="site.site"
-              class="cursor-pointer bg-gradient-to-r from-white via-teal-50 to-white shadow-lg border-l-8 border-teal-500 px-6 py-3 flex flex-col hover:scale-[1.02] transition-transform"
+              class="cursor-pointer bg-gradient-to-r from-white via-red-50 to-white shadow-lg border-l-8 border-red-500 px-6 py-3 flex flex-col hover:scale-[1.02] transition-transform"
               @click="goToSite(site.id)"
             >
               <div class="flex items-center justify-between mb-3">
-                <span class="font-bold text-teal-800 text-md">{{
+                <span class="font-bold text-red-800 text-md">{{
                   site.site
                 }}</span>
                 <span
-                  class="text-[10px] text-gray-500 bg-teal-100 px-2 py-1 rounded"
+                  class="text-[10px] text-gray-500 bg-red-100 px-2 py-1 rounded"
                   >{{ site.location }}</span
                 >
               </div>
               <div class="flex gap-6 mt-1 mb-2">
                 <div class="flex items-center gap-2">
-                  <i class="fas fa-clipboard-list text-teal-500"></i>
+                  <i class="fas fa-clipboard-list text-red-500"></i>
                   <span class="text-xs text-gray-700"
                     >Requests:
-                    <span class="font-bold text-teal-700">{{
+                    <span class="font-bold text-red-700">{{
                       site.requests
                     }}</span></span
                   >
                 </div>
                 <div class="flex items-center gap-2">
-                  <i class="fas fa-shipping-fast text-teal-500"></i>
+                  <i class="fas fa-shipping-fast text-red-500"></i>
                   <span class="text-xs text-gray-700"
                     >Dispatches:
-                    <span class="font-bold text-teal-700">{{
+                    <span class="font-bold text-red-700">{{
                       site.dispatches
                     }}</span></span
                   >
                 </div>
                 <div class="flex items-center gap-2">
-                  <i class="fas fa-undo-alt text-teal-500"></i>
+                  <i class="fas fa-undo-alt text-red-500"></i>
                   <span class="text-xs text-gray-700"
                     >Returns:
-                    <span class="font-bold text-teal-700">{{
+                    <span class="font-bold text-red-700">{{
                       site.returns
                     }}</span></span
                   >
@@ -234,7 +234,7 @@
             <!-- Filler for even height if sites < activities -->
             <div
               v-if="activeSites.length < latestWorkflowsDisplay.length"
-              class="p-3 text-sm bg-teal-50 text-center text-gray-400 border-l-8 border-teal-100 flex-1 flex items-center justify-center"
+              class="p-3 text-sm bg-red-50 text-center text-gray-400 border-l-8 border-red-100 flex-1 flex items-center justify-center"
             >
               No more sites to show!
             </div>
@@ -245,11 +245,11 @@
       <!-- Recent Activity List (Right Side) -->
       <div class="md:w-2/3 min-h-[280px] flex flex-col">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-base font-semibold text-teal-700">Recent Activity</h2>
+          <h2 class="text-base font-semibold text-red-700">Recent Activity</h2>
           <div class="flex items-baseline gap-2">
             <a
               href="#"
-              class="bg-gradient-to-r from-teal-400 to-teal-600 text-white hover:from-teal-500 hover:to-teal-700 text-[10px] font-semibold px-2 py-1 rounded shadow transition inline-block"
+              class="bg-gradient-to-r from-red-400 to-red-600 text-white hover:from-red-500 hover:to-red-700 text-[10px] font-semibold px-2 py-1 rounded shadow transition inline-block"
               @click.prevent="handleViewAll"
             >
               View All
@@ -260,10 +260,10 @@
           v-if="loadingRecentActivity"
           class="flex flex-col items-center justify-center py-8"
         >
-          <span class="animate-spin text-3xl text-teal-400 mb-2">
+          <span class="animate-spin text-3xl text-red-400 mb-2">
             <i class="fas fa-spinner"></i>
           </span>
-          <span class="text-teal-600 text-base font-semibold"
+          <span class="text-red-600 text-base font-semibold"
             >Loading recent activity...</span
           >
         </div>
@@ -275,14 +275,14 @@
             <li
               v-for="(activity, idx) in latestWorkflowsDisplay"
               :key="idx"
-              class="border-teal-500 cursor-pointer bg-gradient-to-r from-white via-teal-50 to-white shadow-lg border-l-8 px-6 py-3 flex flex-col justify-center hover:scale-[1.02] transition-transform"
+              class="border-red-500 cursor-pointer bg-gradient-to-r from-white via-red-50 to-white shadow-lg border-l-8 px-6 py-3 flex flex-col justify-center hover:scale-[1.02] transition-transform"
               @click="handleActivityClick(activity)"
             >
               <div class="flex items-center justify-between mb-1">
                 <!-- ...existing code... -->
                 <div>
                   <span
-                    class="inline-block px-2 py-1 rounded text-[11px] font-semibold bg-teal-500 text-white"
+                    class="inline-block px-2 py-1 rounded text-[11px] font-semibold bg-red-500 text-white"
                     style="
                       min-width: 50px;
                       max-width: 160px;
@@ -294,21 +294,21 @@
                   </span>
                 </div>
                 <span
-                  class="text-[10px] text-gray-500 bg-teal-100 px-2 py-1 rounded truncate"
+                  class="text-[10px] text-gray-500 bg-red-100 px-2 py-1 rounded truncate"
                   >{{ activity.site || activity.site_name || "" }}</span
                 >
               </div>
 
               <div class="flex gap-6 items-center my-2">
                 <div class="flex items-center gap-2">
-                  <!-- <i class="fas fa-user text-teal-500"></i> -->
+                  <!-- <i class="fas fa-user text-red-500"></i> -->
                   <span
                     class="text-[10px] font-semibold text-gray-700 truncate"
                     >{{ activity.workflow_tracker_id }}</span
                   >
                 </div>
                 <div class="flex items-center gap-2">
-                  <i class="fas fa-user text-teal-500"></i>
+                  <i class="fas fa-user text-red-500"></i>
                   <span class="text-xs text-gray-700 truncate">{{
                     activity.created_by_user_name
                   }}</span>
@@ -318,25 +318,25 @@
                   v-if="activity.no_of_materials"
                   class="flex items-center gap-2 ml-2"
                 >
-                  <i class="fas fa-boxes text-teal-500"></i>
+                  <i class="fas fa-boxes text-red-500"></i>
                   <span class="text-xs text-gray-700 truncate"
                     >Materials:
-                    <span class="font-bold text-teal-700">{{
+                    <span class="font-bold text-red-700">{{
                       activity.no_of_materials
                     }}</span></span
                   >
                 </div>
                 <div v-if="activity.items" class="flex items-center gap-2">
-                  <i class="fas fa-cubes-stacked text-teal-500"></i>
+                  <i class="fas fa-cubes-stacked text-red-500"></i>
                   <span class="text-xs text-gray-700 truncate"
                     >Items:
-                    <span class="font-bold text-teal-700">{{
+                    <span class="font-bold text-red-700">{{
                       activity.items
                     }}</span></span
                   >
                 </div>
                 <div class="flex items-center gap-2 ml-auto">
-                  <i class="fas fa-clock text-teal-500"></i>
+                  <i class="fas fa-clock text-red-500"></i>
                   <span class="text-[10px] text-gray-700 truncate">{{
                     formatReadableDate(activity.created_at)
                   }}</span>
@@ -346,7 +346,7 @@
           </ul>
           <div
             v-else
-            class="p-5 bg-teal-50 text-center text-gray-400 border-l-8 border-teal-100 flex-1 flex items-center justify-center min-h-[72px] max-h-[280px] h-[280px]"
+            class="p-5 bg-red-50 text-center text-gray-400 border-l-8 border-red-100 flex-1 flex items-center justify-center min-h-[72px] max-h-[280px] h-[280px]"
           >
             No recent activities
           </div>

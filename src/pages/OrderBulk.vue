@@ -9,33 +9,33 @@
         <li>
           <router-link
             to="/sites"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-city mr-1"></i> Sites
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li>
           <router-link
             :to="`/sites/${siteId}`"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
             aria-current="page"
           >
             <i class="fas fa-building mr-1"></i>{{ siteName }}
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i class="fas fa-boxes mr-1"></i>{{ route.query.actionType }} Bulk
@@ -48,34 +48,34 @@
       <!-- Header Bar -->
       <div class="flex items-center justify-between mb-2 px-2">
         <div class="flex items-center gap-3">
-          <div class="bg-teal-200 rounded-full p-2">
-            <i class="fas fa-th text-xl text-teal-700"></i>
+          <div class="bg-red-200 rounded-full p-2">
+            <i class="fas fa-th text-xl text-red-700"></i>
           </div>
-          <h2 class="text-lg font-bold text-teal-700">
+          <h2 class="text-lg font-bold text-red-700">
             {{ route.query.actionType }} Bulk Materials
           </h2>
         </div>
       </div>
       <div
-        class="mb-4 ml-12 px-2 text-teal-700 font-semibold text-xs flex items-center gap-2"
+        class="mb-4 ml-12 px-2 text-red-700 font-semibold text-xs flex items-center gap-2"
       >
         <i class="fas fa-building"></i>
         <span>Site:</span>
         <router-link
           :to="`/sites/${siteId}`"
-          class="bg-teal-100 px-2 py-1 rounded text-teal-900 ml-2 hover:bg-teal-200 transition font-semibold"
+          class="bg-red-100 px-2 py-1 rounded text-red-900 ml-2 hover:bg-red-200 transition font-semibold"
         >
           {{ siteName }}
         </router-link>
         <button
           @click="showAddSubcategory = true"
-          class="ml-4 px-3 py-1 bg-teal-500 text-white rounded-full text-xs font-semibold shadow hover:bg-teal-600 transition flex items-center"
+          class="ml-4 px-3 py-1 bg-red-500 text-white rounded-full text-xs font-semibold shadow hover:bg-red-600 transition flex items-center"
         >
           <i class="fas fa-layer-group mr-1"></i>Add Subcategory
         </button>
         <button
           @click="showAddMaterial = true"
-          class="ml-2 px-3 py-1 bg-teal-700 text-white rounded-full text-xs font-semibold shadow hover:bg-teal-800 transition flex items-center"
+          class="ml-2 px-3 py-1 bg-red-700 text-white rounded-full text-xs font-semibold shadow hover:bg-red-800 transition flex items-center"
         >
           <i class="fas fa-cube mr-1"></i>Add Material
         </button>
@@ -83,12 +83,12 @@
       <div class="w-full ml-12 mb-14">
         <div
           v-if="loading"
-          class="flex flex-col items-center justify-center text-teal-600 text-center py-8 text-lg animate-pulse"
+          class="flex flex-col items-center justify-center text-red-600 text-center py-8 text-lg animate-pulse"
         >
-          <span class="animate-spin text-3xl text-teal-400 mb-2">
+          <span class="animate-spin text-3xl text-red-400 mb-2">
             <i class="fas fa-spinner"></i>
           </span>
-          <span class="text-teal-600 text-base font-semibold"
+          <span class="text-red-600 text-base font-semibold"
             >Loading Available Materials...</span
           >
         </div>
@@ -103,16 +103,16 @@
           </div>
           <div
             v-if="route.query.actionType == 'Return' || route.query.actionType == 'Consume'"
-            class="flex items-center justify-center py-2 mb-2 text-xs font-semibold text-teal-700 bg-teal-50 rounded shadow"
+            class="flex items-center justify-center py-2 mb-2 text-xs font-semibold text-red-700 bg-red-50 rounded shadow"
             >
-            <i class="fas fa-info-circle mr-2 text-teal-400"></i>
+            <i class="fas fa-info-circle mr-2 text-red-400"></i>
             {{ !accordionGroups.length ? "No materials to show!" : "Showing only materials available at sites" }}
           </div>
           <div
             v-if="route.query.actionType == 'Dispatch'"
-            class="flex items-center justify-center py-2 mb-2 text-xs font-semibold text-teal-700 bg-teal-50 rounded shadow"
+            class="flex items-center justify-center py-2 mb-2 text-xs font-semibold text-red-700 bg-red-50 rounded shadow"
             >
-            <i class="fas fa-info-circle mr-2 text-teal-400"></i>
+            <i class="fas fa-info-circle mr-2 text-red-400"></i>
             {{ !accordionGroups.length ? "No materials to show!" : "Showing only materials available at HO" }}
           </div>
           <div
@@ -122,7 +122,7 @@
           >
             <details open class="mb-2">
               <summary
-                class="border-t-2 border-gray-100 rounded shadow-md pl-3 py-2 text-base font-bold text-teal-800 cursor-pointer select-none flex items-center gap-2"
+                class="border-t-2 border-gray-100 rounded shadow-md pl-3 py-2 text-base font-bold text-red-800 cursor-pointer select-none flex items-center gap-2"
                 style="
                   background: linear-gradient(90deg, #81e6d9 0%, #f0fdfa 100%);
                 "
@@ -141,11 +141,11 @@
                   class="flex-1 min-w-[22rem] flex items-start"
                 >
                   <i
-                    class="fas fa-angle-double-right mr-2 text-teal-400 mt-4"
+                    class="fas fa-angle-double-right mr-2 text-red-400 mt-4"
                   ></i>
                   <details open class="mb-2 w-full">
                     <summary
-                      class="border-t-2 border-gray-100 rounded shadow-md pl-3 py-2 text-base font-bold text-teal-800 cursor-pointer select-none flex items-center gap-2"
+                      class="border-t-2 border-gray-100 rounded shadow-md pl-3 py-2 text-base font-bold text-red-800 cursor-pointer select-none flex items-center gap-2"
                       style="
                         background: linear-gradient(
                           90deg,
@@ -174,25 +174,25 @@
                       </button>
                       <button
                         @click.stop="reloadSubcategoryMaterials(catIdx, subIdx)"
-                        class="ml-2 px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs font-semibold hover:bg-teal-200 transition flex items-center mr-3"
+                        class="ml-2 px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-semibold hover:bg-red-200 transition flex items-center mr-3"
                       >
                         <i class="fas fa-sync-alt mr-1"></i>Reload
                       </button>
                     </summary>
                     <div class="pl-5 pt-2 mb-4 gap-2 flex items-start">
                       <i
-                        class="fas fa-angle-double-right mr-2 text-teal-400 mt-4"
+                        class="fas fa-angle-double-right mr-2 text-red-400 mt-4"
                       ></i>
                       <table class="min-w-[30rem] mt-2 mb-2 border">
                         <thead>
-                          <tr class="bg-teal-50">
-                            <th class="p-2 text-left text-xs text-teal-700">
+                          <tr class="bg-red-50">
+                            <th class="p-2 text-left text-xs text-red-700">
                               Material
                             </th>
-                            <th class="p-2 text-left text-xs text-teal-700">
+                            <th class="p-2 text-left text-xs text-red-700">
                               Quantity
                             </th>
-                            <th class="p-2 text-left text-xs text-teal-700">
+                            <th class="p-2 text-left text-xs text-red-700">
                               Action
                             </th>
                           </tr>
@@ -207,21 +207,21 @@
                               mat._deleting === true
                                 ? 'bg-red-200 animate-pulse'
                                 : mat.highlighted === true
-                                ? 'bg-teal-200 animate-pulse'
-                                : 'hover:bg-teal-50 transition',
+                                ? 'bg-red-200 animate-pulse'
+                                : 'hover:bg-red-50 transition',
                             ]"
                           >
                             <td class="p-2 text-xs text-gray-700 font-medium">
                               {{ mat.material }}
                               <span
                                 v-if="route.query.actionType === 'Dispatch'"
-                                class="ml-2 text-[10px] px-2 py-1 rounded bg-teal-100 text-teal-700 font-semibold"
+                                class="ml-2 text-[10px] px-2 py-1 rounded bg-red-100 text-red-700 font-semibold"
                                 >Available at HO:
                                 {{ mat.stock_at_ho }}</span
                               >
                               <span
                                 v-if="route.query.actionType === 'Return' || route.query.actionType === 'Consume'"
-                                class="ml-2 text-[10px] px-2 py-1 rounded bg-teal-100 text-teal-700 font-semibold"
+                                class="ml-2 text-[10px] px-2 py-1 rounded bg-red-100 text-red-700 font-semibold"
                                 >Available at Site:
                                 {{ mat.stock_available_at_site || 0 }}</span>
                             </td>
@@ -231,7 +231,7 @@
                                 v-model.number="mat.quantity"
                                 min="1"
                                 required
-                                class="w-16 p-1 border border-teal-300 rounded-lg focus:ring-2 focus:ring-teal-400 text-teal-700 font-semibold text-xs"
+                                class="w-16 p-1 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-400 text-red-700 font-semibold text-xs"
                                 :style="{
                                   background: (() => {
                                     if (route.query.actionType === 'Dispatch') {
@@ -295,69 +295,69 @@
             <div class="flex items-baseline gap-2 mb-5" v-if="route.query.actionType === 'Return'">
               <label
                 for="return-date"
-                class="text-xs font-semibold text-teal-700 min-w-[140px]"
+                class="text-xs font-semibold text-red-700 min-w-[140px]"
                 >Return Date:<span class="text-red-500">*</span></label
               >
               <input
                 id="return-date"
                 type="date"
                 v-model="returnDate"
-                class="cursor-pointer border border-teal-300 rounded px-2 py-1 text-xs text-teal-700 focus:ring-2 focus:ring-teal-400"
+                class="cursor-pointer border border-red-300 rounded px-2 py-1 text-xs text-red-700 focus:ring-2 focus:ring-red-400"
                 style="min-width: 140px"
               />
             </div>
             <div class="flex items-baseline gap-2 mb-5" v-if="route.query.actionType === 'Dispatch'">
               <label
                 for="dispatch-date"
-                class="text-xs font-semibold text-teal-700 min-w-[140px]"
+                class="text-xs font-semibold text-red-700 min-w-[140px]"
                 >Dispatch Date:<span class="text-red-500">*</span></label
               >
               <input
                 id="dispatch-date"
                 type="date"
                 v-model="dispatchDate"
-                class="cursor-pointer border border-teal-300 rounded px-2 py-1 text-xs text-teal-700 focus:ring-2 focus:ring-teal-400"
+                class="cursor-pointer border border-red-300 rounded px-2 py-1 text-xs text-red-700 focus:ring-2 focus:ring-red-400"
                 style="min-width: 140px"
               />
             </div>
              <div class="flex items-baseline gap-2 mb-5" v-if="route.query.actionType === 'Request'">
               <label
                 for="request-date"
-                class="text-xs font-semibold text-teal-700 min-w-[140px]"
+                class="text-xs font-semibold text-red-700 min-w-[140px]"
                 >Request Date:<span class="text-red-500">*</span></label
               >
               <input
                 id="request-date"
                 type="date"
                 v-model="requestDate"
-                class="cursor-pointer border border-teal-300 rounded px-2 py-1 text-xs text-teal-700 focus:ring-2 focus:ring-teal-400"
+                class="cursor-pointer border border-red-300 rounded px-2 py-1 text-xs text-red-700 focus:ring-2 focus:ring-red-400"
                 style="min-width: 140px"
               />
             </div>
              <div class="flex items-baseline gap-2 mb-5" v-if="route.query.actionType === 'Request'">
               <label
                 for="delivery-date"
-                class="text-xs font-semibold text-teal-700 min-w-[140px]"
+                class="text-xs font-semibold text-red-700 min-w-[140px]"
                 >Expected Delivery Date:<span class="text-red-500">*</span></label
               >
               <input
                 id="delivery-date"
                 type="date"
                 v-model="deliveryDate"
-                class="cursor-pointer border border-teal-300 rounded px-2 py-1 text-xs text-teal-700 focus:ring-2 focus:ring-teal-400"
+                class="cursor-pointer border border-red-300 rounded px-2 py-1 text-xs text-red-700 focus:ring-2 focus:ring-red-400"
                 style="min-width: 140px"
               />
             </div>
             <div class="flex items-baseline gap-2">
               <label
                 for="comments"
-                class="text-xs font-semibold text-teal-700 min-w-[140px]"
+                class="text-xs font-semibold text-red-700 min-w-[140px]"
                 >Comments:<span class="text-red-500">*</span></label
               >
               <textarea
                 id="comments"
                 v-model="comments"
-                class="border border-teal-300 rounded px-2 py-1 text-xs text-teal-700 focus:ring-2 focus:ring-teal-400"
+                class="border border-red-300 rounded px-2 py-1 text-xs text-red-700 focus:ring-2 focus:ring-red-400"
                 placeholder="Enter comments..."
                 style="min-width: 450px; min-height: 120px; resize: vertical"
               ></textarea>
@@ -365,7 +365,7 @@
           </div>
           <button
             @click="submitOrder"
-            class="w-28 py-2 mt-4 bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-600 hover:to-teal-800 text-white rounded-lg shadow font-semibold text-xs transition mx-auto block"
+            class="w-28 py-2 mt-4 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white rounded-lg shadow font-semibold text-xs transition mx-auto block"
           >
             <i class="fas fa-cubes mr-2"></i>Submit
           </button>

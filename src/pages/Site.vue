@@ -9,19 +9,19 @@
         <li>
           <router-link
             to="/sites"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-city mr-1"></i> Sites
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i class="fas fa-building mr-1"></i>{{ siteStore.site?.site || "" }}
@@ -34,20 +34,20 @@
       v-if="isLoading"
       class="flex flex-col items-center justify-center py-12"
     >
-      <span class="animate-spin text-3xl text-teal-400 mb-2">
+      <span class="animate-spin text-3xl text-red-400 mb-2">
         <i class="fas fa-spinner"></i>
       </span>
-      <span class="text-teal-600 text-base font-semibold"
+      <span class="text-red-600 text-base font-semibold"
         >Loading site info...</span
       >
     </div>
     <div v-else>
       <div class="flex items-center justify-between mb-2 px-2">
         <div class="flex items-center gap-3">
-          <div class="bg-teal-200 rounded-full p-2">
-            <i class="fas fa-building text-xl text-teal-700"></i>
+          <div class="bg-red-200 rounded-full p-2">
+            <i class="fas fa-building text-xl text-red-700"></i>
           </div>
-          <h2 class="text-lg font-bold text-teal-700">
+          <h2 class="text-lg font-bold text-red-700">
             {{ siteStore.site?.site || "" }}
           </h2>
           <!-- Status pill -->
@@ -55,7 +55,7 @@
             class="ml-3 px-3 py-1 rounded-full text-xs font-semibold"
             :class="
               siteStore.site?.status === 'Active'
-                ? 'bg-teal-100 text-teal-700'
+                ? 'bg-red-100 text-red-700'
                 : siteStore.site?.status === 'Closed'
                 ? 'bg-gray-200 text-gray-600'
                 : 'bg-orange-100 text-orange-700'
@@ -66,14 +66,14 @@
         </div>
         <div class="flex gap-3 px-3 py-2 items-center">
           <button v-if="hasAccess(userRole as Role, 'requestStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Request Stock from HO"
             @click="openRequestHO"
           >
             <i class="fas fa-warehouse"></i>
           </button>
           <button v-if="hasAccess(userRole as Role, 'requestStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Request Stock from HO (Bulk)"
             @click="openBulkStockPreset('Request')"
           >
@@ -81,21 +81,21 @@
           </button>
           <button
             v-if="hasAccess(userRole as Role, 'dispatchStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 border border-teal-200 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 border border-red-200 shadow transition"
             title="Dispatch Stock to Site"
             @click="showDispatchStock = true"
           >
             <i class="fas fa-shipping-fast"></i>
           </button>
           <button v-if="hasAccess(userRole as Role, 'dispatchStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Dispatch Stock to Site (Bulk)"
             @click="openBulkStockPreset('Dispatch')"
           >
             <i class="fas fa-th"></i>
           </button>
           <button v-if="hasAccess(userRole as Role, 'returnStock')"
-            class="ml-3 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="ml-3 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Return Stock to HO"
             @click="openReturnStockModal('Return')"
           >
@@ -103,7 +103,7 @@
             <i class="fas fa-undo-alt"></i>
           </button>
           <button v-if="hasAccess(userRole as Role, 'returnStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Return Stock to HO (Bulk)"
             @click="openBulkStockPreset('Return')"
           >
@@ -113,7 +113,7 @@
 
 
           <button v-if="hasAccess(userRole as Role, 'consumeStock')"
-            class="ml-3 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="ml-3 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Mark Stock Consumed"
             @click="openReturnStockModal('Consume')"
           >
@@ -121,7 +121,7 @@
             <i class="fas fa-arrow-down"></i>
           </button>
           <button v-if="hasAccess(userRole as Role, 'consumeStock')"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Mark Stock Consumed (Bulk)"
             @click="openBulkStockPreset('Consume')"
           >
@@ -133,9 +133,9 @@
             <button
               id="site-menu-button"
               @click="openSiteMenu"
-              class="p-3 rounded-full hover:bg-teal-100 focus:outline-none"
+              class="p-3 rounded-full hover:bg-red-100 focus:outline-none"
             >
-              <i class="fas fa-ellipsis-v text-teal-700"></i>
+              <i class="fas fa-ellipsis-v text-red-700"></i>
             </button>
             <div
               v-if="showSiteMenu"
@@ -145,19 +145,19 @@
               <ul>
                 <li
                   @click="editSite"
-                  class="px-4 py-2 hover:bg-teal-50 cursor-pointer text-teal-700"
+                  class="px-4 py-2 hover:bg-red-50 cursor-pointer text-red-700"
                 >
                   Edit Site
                 </li>
                 <li
                   @click="closeSite"
-                  class="px-4 py-2 hover:bg-teal-50 cursor-pointer text-red-600"
+                  class="px-4 py-2 hover:bg-red-50 cursor-pointer text-red-600"
                 >
                   Close Site
                 </li>
                 <!-- <li
                   @click="archiveSite"
-                  class="px-4 py-2 hover:bg-teal-50 cursor-pointer text-blue-600"
+                  class="px-4 py-2 hover:bg-red-50 cursor-pointer text-red-600"
                 >
                   Archive Site
                 </li> -->
@@ -168,7 +168,7 @@
       </div>
       <div class="flex gap-6 items-center text-gray-600 text-sm ml-12">
         <span class="flex items-center mr-4 text-xs">
-          <i class="fas fa-map-marker-alt mr-1 text-teal-500"></i
+          <i class="fas fa-map-marker-alt mr-1 text-red-500"></i
           >{{ siteStore.site?.location || "" }}
         </span>
         <span class="flex items-center text-xs">
@@ -176,7 +176,7 @@
           >{{ siteStore.site?.city || "" }}
         </span>
         <span class="flex items-baseline ml-4 text-xs">
-          <i class="fas fa-calendar-alt mr-1 text-teal-500"></i>
+          <i class="fas fa-calendar-alt mr-1 text-red-500"></i>
           <span
             >Start Date:
             <b>{{ formatDate(siteStore.site?.start_date) }}</b></span
@@ -201,31 +201,31 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-2 ml-5 p-4">
         <button
-          class="bg-white border-t-4 border-teal-200 hover:bg-teal-50 rounded-lg p-4 flex flex-col items-center shadow focus:outline-none"
+          class="bg-white border-t-4 border-red-200 hover:bg-red-50 rounded-lg p-4 flex flex-col items-center shadow focus:outline-none"
           @click="handleSiteRequestsClick"
         >
-          <i class="fas fa-clipboard-list text-teal-500 text-2xl mb-1"></i>
-          <div class="text-xl font-bold text-teal-700">
+          <i class="fas fa-clipboard-list text-red-500 text-2xl mb-1"></i>
+          <div class="text-xl font-bold text-red-700">
             {{ site_stats.requests }}
           </div>
           <div class="text-xs text-gray-500">Requests</div>
         </button>
         <button
-          class="bg-white border-t-4 border-teal-200 hover:bg-teal-50 rounded-lg p-4 flex flex-col items-center shadow focus:outline-none"
+          class="bg-white border-t-4 border-red-200 hover:bg-red-50 rounded-lg p-4 flex flex-col items-center shadow focus:outline-none"
           @click="handleSiteDispatchesClick"
         >
-          <i class="fas fa-shipping-fast text-teal-500 text-2xl mb-1"></i>
-          <div class="text-xl font-bold text-teal-700">
+          <i class="fas fa-shipping-fast text-red-500 text-2xl mb-1"></i>
+          <div class="text-xl font-bold text-red-700">
             {{ site_stats.dispatches }}
           </div>
           <div class="text-xs text-gray-500">Dispatches</div>
         </button>
         <button
-          class="bg-white border-t-4 border-teal-200 hover:bg-teal-50 rounded-lg p-4 flex flex-col items-center shadow focus:outline-none"
+          class="bg-white border-t-4 border-red-200 hover:bg-red-50 rounded-lg p-4 flex flex-col items-center shadow focus:outline-none"
           @click="handleSiteReturnsClick"
         >
-          <i class="fas fa-undo text-teal-500 text-2xl mb-1"></i>
-          <div class="text-xl font-bold text-teal-700">
+          <i class="fas fa-undo text-red-500 text-2xl mb-1"></i>
+          <div class="text-xl font-bold text-red-700">
             {{ site_stats.returns }}
           </div>
           <div class="text-xs text-gray-500">Returns</div>
@@ -452,10 +452,14 @@ function handleSiteReturnsClick() {
 }
 
 ::v-global(.p-datatable-column-sorted) {
-  background-color: #ccfbf1 !important;
+  //background-color: #ccfbf1 !important;
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 
 ::v-global(.p-badge) {
-  background-color: #14b8a6 !important; /* teal-500 */
+  //background-color: #14b8a6 !important; /* teal-500 */
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 </style>

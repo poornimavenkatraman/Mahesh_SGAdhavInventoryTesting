@@ -1,25 +1,25 @@
 <template>
   <div class="p-4">
     <div class="flex items-center gap-3 mb-4">
-      <div class="bg-teal-200 rounded-full p-2">
-        <i class="fas fa-chart-line text-lg text-teal-700"></i>
+      <div class="bg-red-200 rounded-full p-2">
+        <i class="fas fa-chart-line text-lg text-red-700"></i>
       </div>
-      <h2 class="text-lg font-bold text-teal-700">Reports</h2>
+      <h2 class="text-lg font-bold text-red-700">Reports</h2>
     </div>
     <!-- Report Type Pills -->
     <div class="flex gap-3 mb-8">
       <span v-for="report in reports" :key="report.type" @click="selectedReport = report.type" :class="[
         'px-4 py-2 rounded-full cursor-pointer font-semibold transition',
         selectedReport === report.type
-          ? 'bg-teal-600 text-white'
-          : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+          ? 'bg-red-600 text-white'
+          : 'bg-red-100 text-red-700 hover:bg-red-200'
       ]">
         {{ report.label }}
       </span>
     </div>
     <!-- Selected Report Card -->
     <div v-if="selectedReport" class="bg-white rounded-xl shadow-md p-6 mb-8">
-      <h2 class="text-xl font-semibold text-teal-700 mb-2">
+      <h2 class="text-xl font-semibold text-red-700 mb-2">
         {{reports.find(r => r.type === selectedReport).label}}
       </h2>
       <p class="text-gray-600 mb-4">
@@ -29,21 +29,21 @@
       <form class="mb-6 flex flex-col gap-4 items-start">
         <!-- FY and Month Pills in Same Line -->
         <div>
-          <label class="block text-teal-700 font-medium mb-1">Financial Year / Month</label>
+          <label class="block text-red-700 font-medium mb-1">Financial Year / Month</label>
           <div class="flex gap-2 flex-wrap">
             <span v-for="fy in financialYears" :key="fy.label" @click="selectFY(fy)" :class="[
               'px-3 py-1 rounded-full cursor-pointer font-semibold transition',
               filters.fy === fy.label
-                ? 'bg-teal-600 text-white'
-                : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+                ? 'bg-red-600 text-white'
+                : 'bg-red-100 text-red-700 hover:bg-red-200'
             ]">
               {{ fy.label }}
             </span>
             <span v-for="month in lastThreeMonths" :key="month.label" @click="selectMonth(month)" :class="[
               'px-3 py-1 rounded-full cursor-pointer font-semibold transition',
               filters.month === month.label
-                ? 'bg-teal-600 text-white'
-                : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+                ? 'bg-red-600 text-white'
+                : 'bg-red-100 text-red-700 hover:bg-red-200'
             ]">
               {{ month.label }}
             </span>
@@ -52,46 +52,46 @@
         <!-- Date Selection -->
         <div class="flex gap-4 flex-wrap">
           <div>
-            <label class="block text-teal-700 font-medium mb-1">Start Date</label>
+            <label class="block text-red-700 font-medium mb-1">Start Date</label>
             <input v-model="filters.startDate" type="date"
-              class="border border-teal-200 rounded px-3 py-2 focus:ring-2 focus:ring-teal-400" />
+              class="border border-red-200 rounded px-3 py-2 focus:ring-2 focus:ring-red-400" />
           </div>
           <div>
-            <label class="block text-teal-700 font-medium mb-1">End Date</label>
+            <label class="block text-red-700 font-medium mb-1">End Date</label>
             <input v-model="filters.endDate" type="date"
-              class="border border-teal-200 rounded px-3 py-2 focus:ring-2 focus:ring-teal-400" />
+              class="border border-red-200 rounded px-3 py-2 focus:ring-2 focus:ring-red-400" />
           </div>
         </div>
         <!-- Other filters in a separate wider line -->
         <div class="flex gap-4 flex-wrap w-full">
           <div v-if="selectedReport === 'stock-summary'" class="min-w-[220px]">
-            <label class="block text-teal-700 font-medium mb-1">Category</label>
+            <label class="block text-red-700 font-medium mb-1">Category</label>
             <select v-model="filters.category"
-              class="border border-teal-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-teal-400">
+              class="border border-red-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-red-400">
               <option value="">All</option>
               <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
             </select>
           </div>
           <div v-if="selectedReport === 'site-consumption'" class="min-w-[220px]">
-            <label class="block text-teal-700 font-medium mb-1">Site</label>
+            <label class="block text-red-700 font-medium mb-1">Site</label>
             <select v-model="filters.site"
-              class="border border-teal-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-teal-400">
+              class="border border-red-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-red-400">
               <option value="">All</option>
               <option v-for="site in sites" :key="site" :value="site">{{ site }}</option>
             </select>
           </div>
           <div v-if="selectedReport === 'dispatch-history'" class="min-w-[220px]">
-            <label class="block text-teal-700 font-medium mb-1">Site</label>
+            <label class="block text-red-700 font-medium mb-1">Site</label>
             <select v-model="filters.site"
-              class="border border-teal-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-teal-400">
+              class="border border-red-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-red-400">
               <option value="">All</option>
               <option v-for="site in sites" :key="site" :value="site">{{ site }}</option>
             </select>
           </div>
           <div v-if="selectedReport === 'request-status'" class="min-w-[220px]">
-            <label class="block text-teal-700 font-medium mb-1">Status</label>
+            <label class="block text-red-700 font-medium mb-1">Status</label>
             <select v-model="filters.requestStatus"
-              class="border border-teal-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-teal-400">
+              class="border border-red-200 rounded px-4 py-2 w-full focus:ring-2 focus:ring-red-400">
               <option value="">All</option>
               <option value="Pending">Pending</option>
               <option value="Approved">Approved</option>
@@ -100,12 +100,12 @@
           </div>
         </div>
         <button type="button"
-          class="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded shadow font-semibold ml-2">
+          class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded shadow font-semibold ml-2">
           Generate Report
         </button>
       </form>
       <!-- Placeholder for report content/table/chart -->
-      <div class="border border-teal-100 rounded p-6 text-center text-gray-400">
+      <div class="border border-red-100 rounded p-6 text-center text-gray-400">
         [Report results will appear here]
       </div>
     </div>

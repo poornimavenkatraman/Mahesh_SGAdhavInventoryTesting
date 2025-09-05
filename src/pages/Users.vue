@@ -3,15 +3,15 @@
     <!-- <div class="bg-white shadow-sm py-6 px-6"> -->
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center gap-3">
-        <div class="bg-teal-200 rounded-full p-2">
-          <i class="fas fa-users text-lg text-teal-700"></i>
+        <div class="bg-red-200 rounded-full p-2">
+          <i class="fas fa-users text-lg text-red-700"></i>
         </div>
-        <h2 class="text-lg font-bold text-teal-700">Users</h2>
+        <h2 class="text-lg font-bold text-red-700">Users</h2>
       </div>
       <div class="flex items-center gap-2">
         <button
           @click="showAddUser = true"
-          class="text-xs bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+          class="text-xs bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
           title="Add New User"
         >
           <i class="fas fa-user-plus"></i>
@@ -19,30 +19,30 @@
       </div>
     </div>
 
-    <div v-if="userStore.loading" class="flex items-center gap-2 text-teal-600">
+    <div v-if="userStore.loading" class="flex items-center gap-2 text-red-600">
       <i class="fas fa-spinner fa-spin"></i>
       Loading users...
     </div>
 
     <div v-else-if="userStore.users && userStore.users.length > 0">
       <table
-        class="min-w-full bg-white border border-teal-200 rounded-lg text-xs shadow"
+        class="min-w-full bg-white border border-red-200 rounded-lg text-xs shadow"
       >
         <!-- Table Header: Only show "sites" column for Site Staff -->
         <thead>
-          <tr class="bg-teal-100">
+          <tr class="bg-red-100">
             <th
-              class="border-b border-teal-200 px-4 py-2 text-teal-700 font-semibold text-start"
+              class="border-b border-red-200 px-4 py-2 text-red-700 font-semibold text-start"
             >
               Name
             </th>
             <th
-              class="border-b border-teal-200 px-4 py-2 text-teal-700 font-semibold text-start"
+              class="border-b border-red-200 px-4 py-2 text-red-700 font-semibold text-start"
             >
               Email
             </th>
             <th
-              class="border-b border-teal-200 px-4 py-2 text-teal-700 font-semibold text-start"
+              class="border-b border-red-200 px-4 py-2 text-red-700 font-semibold text-start"
             >
               Role
             </th>
@@ -50,12 +50,12 @@
               v-if="
                 (userStore.users || []).some((u) => u.role === Role.SiteStaff)
               "
-              class="border-b border-teal-200 px-4 py-2 text-teal-700 font-semibold text-start"
+              class="border-b border-red-200 px-4 py-2 text-red-700 font-semibold text-start"
             >
               Sites
             </th>
             <th
-              class="border-b border-teal-200 px-4 py-2 text-teal-700 font-semibold text-start"
+              class="border-b border-red-200 px-4 py-2 text-red-700 font-semibold text-start"
             >
               Actions
             </th>
@@ -65,13 +65,13 @@
           <tr
             v-for="(user, index) in orderedUsers"
             :key="index"
-            class="hover:bg-teal-50 transition-colors"
+            class="hover:bg-red-50 transition-colors"
           >
-            <td class="border-b border-teal-100 px-4 py-2 font-medium">
+            <td class="border-b border-red-100 px-4 py-2 font-medium">
               {{ user.user }}
             </td>
-            <td class="border-b border-teal-100 px-4 py-2">{{ user.email }}</td>
-            <td class="border-b border-teal-100 px-4 py-2 capitalize">
+            <td class="border-b border-red-100 px-4 py-2">{{ user.email }}</td>
+            <td class="border-b border-red-100 px-4 py-2 capitalize">
               <template v-if="editingUserId === user.id">
                 <Dropdown
                   v-model="editRole"
@@ -91,7 +91,7 @@
               </template>
             </td>
             <!-- Always show the Sites column, but only fill for Site Staff -->
-            <td class="border-b border-teal-100 px-4 py-2">
+            <td class="border-b border-red-100 px-4 py-2">
               <template v-if="user.role === Role.SiteStaff">
                 <template
                   v-if="editingUserId === user.id && editRole === Role.SiteStaff"
@@ -111,7 +111,7 @@
                     <li
                       v-for="(siteId, i) in userSitesMap[user.id] || []"
                       :key="i"
-                      class="inline-block bg-teal-100 text-teal-700 px-2 py-1 rounded-full text-xs cursor-pointer hover:bg-teal-200 transition"
+                      class="inline-block bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs cursor-pointer hover:bg-red-200 transition"
                       @click="() => $emit && $emit('site-click', siteId)"
                     >
                       {{ getSiteNameById(siteId) }}
@@ -123,11 +123,11 @@
                 <!-- Empty cell for non Site Staff -->
               </template>
             </td>
-            <td class="border-b border-teal-100 py-2 space-x-2 text-start">
+            <td class="border-b border-red-100 py-2 space-x-2 text-start">
               <template v-if="editingUserId === user.id">
                 <button
                   @click="saveEdit(user.id)"
-                  class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2 shadow transition"
+                  class="bg-red-600 hover:bg-red-700 text-white rounded-full p-2 shadow transition"
                   title="Save"
                 >
                   <i class="fas fa-check"></i>
@@ -143,7 +143,7 @@
               <template v-else>
                 <button
                   @click="startEdit(user)"
-                  class="bg-teal-600 hover:bg-teal-700 text-white rounded-full p-2 shadow transition"
+                  class="bg-red-600 hover:bg-red-700 text-white rounded-full p-2 shadow transition"
                   title="Edit"
                 >
                   <i class="fas fa-edit"></i>
@@ -176,7 +176,7 @@
       <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-xl relative">
         <button
           @click="showAddUser = false"
-          class="absolute top-4 right-4 text-gray-400 hover:text-teal-600 text-xl"
+          class="absolute top-4 right-4 text-gray-400 hover:text-red-600 text-xl"
           title="Close"
         >
           <i class="fas fa-times"></i>

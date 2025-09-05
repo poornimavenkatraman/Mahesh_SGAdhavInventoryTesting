@@ -7,8 +7,8 @@
           v-for="item in menu"
           :key="item.name"
           :to="item.path"
-          class="block px-4 py-2 rounded hover:bg-blue-50"
-          :class="{ 'bg-blue-100': $route.path === item.path }"
+          class="block px-4 py-2 rounded hover:bg-red-50"
+          :class="{ 'bg-red-100': $route.path === item.path }"
         >
           {{ item.name }}
         </router-link>

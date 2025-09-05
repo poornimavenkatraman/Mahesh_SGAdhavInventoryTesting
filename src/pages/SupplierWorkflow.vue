@@ -10,33 +10,33 @@
           <li v-if="route.query.root_page == 'Home'">
             <router-link
               to="/home"
-              class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+              class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
             >
               <i class="fas fa-home mr-1"></i> Home
             </router-link>
           </li>
           <li>
-            <span class="mx-1 text-teal-400">
+            <span class="mx-1 text-red-400">
               <i class="fas fa-chevron-right"></i>
             </span>
           </li>
           <li v-if="route.query.pageType">
             <router-link
               :to="`/home/site_status?page_type=${route.query.pageType}&root_page=${route.query.root_page}&status=${route.query.status}`"
-              class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+              class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
             >
               <i class="mr-1 fas fa-exchange-alt"></i>
               {{ route.query.pageType || "" }}
             </router-link>
           </li>
           <li v-if="route.query.pageType">
-            <span class="mx-1 text-teal-400">
+            <span class="mx-1 text-red-400">
               <i class="fas fa-chevron-right"></i>
             </span>
           </li>
           <li>
             <span
-              class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+              class="inline-flex items-baseline px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
               aria-current="page"
             >
               <i class="fas fa-clipboard-check mr-1"></i>
@@ -47,48 +47,48 @@
       </nav>
       <div class="flex items-center gap-3 mb-1 p-3 justify-between">
         <div class="flex items-center gap-3">
-          <div class="bg-teal-200 rounded-full p-2">
-            <i class="fas fa-clipboard-check text-xl text-teal-700"></i>
+          <div class="bg-red-200 rounded-full p-2">
+            <i class="fas fa-clipboard-check text-xl text-red-700"></i>
           </div>
-          <h2 class="text-lg font-bold text-teal-700">Supplier Workflow</h2>
+          <h2 class="text-lg font-bold text-red-700">Supplier Workflow</h2>
         </div>
       </div>
 
-      <!-- <h2 class="text-teal-700 font-bold text-2xl mb-6 flex items-center">
+      <!-- <h2 class="text-red-700 font-bold text-2xl mb-6 flex items-center">
         <i class="fas fa-truck mr-2"></i>Requested Stock Requests to Supplier
       </h2> -->
       <div
         v-if="isLoading"
         class="flex items-center justify-center min-h-screen"
       >
-        <!-- <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-teal-500"></div> -->
-        <span class="animate-spin text-3xl text-teal-400 mb-2">
+        <!-- <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-red-500"></div> -->
+        <span class="animate-spin text-3xl text-red-400 mb-2">
           <i class="fas fa-spinner"></i>
         </span>
-        <span class="ml-4 text-teal-700 font-semibold">Loading...</span>
+        <span class="ml-4 text-red-700 font-semibold">Loading...</span>
       </div>
       <div v-else class="p-6 pt-3 mt-1">
         <div
-          class="bg-gradient-to-r from-teal-400 to-teal-100 border-1 border-teal-500 px-6 py-3 mb-2 flex items-center gap-2 shadow-lg rounded"
+          class="bg-gradient-to-r from-red-400 to-red-100 border-1 border-red-500 px-6 py-3 mb-2 flex items-center gap-2 shadow-lg rounded"
         >
           <span
-            class="font-bold text-teal-900 flex-1 text-left text-xs tracking-wide"
+            class="font-bold text-red-900 flex-1 text-left text-xs tracking-wide"
           >
             Workflow ID:
-            <span class="font-bold px-3 py-1 text-teal-800 text-[10px]">
+            <span class="font-bold px-3 py-1 text-red-800 text-[10px]">
               {{ workflow?.workflow_tracker_id || "" }}
             </span>
             <span
-              class="px-3 py-1 rounded ml-2 text-[11px] shadow bg-teal-600 text-white font-medium"
+              class="px-3 py-1 rounded ml-2 text-[11px] shadow bg-red-600 text-white font-medium"
             >
               {{ workflow?.current_status || "" }}
             </span>
           </span>
           <span
             v-if="supplier"
-            class="text-xs text-teal-900 font-semibold ml-auto flex items-center gap-1"
+            class="text-xs text-red-900 font-semibold ml-auto flex items-center gap-1"
           >
-            <i class="fas fa-truck-loading text-teal-600 mr-1"></i>
+            <i class="fas fa-truck-loading text-red-600 mr-1"></i>
             {{ supplier.suppliers_name }}
           </span>
         </div>
@@ -97,7 +97,7 @@
           <div
             class="p-3 px-8 rounded-t text-white flex flex-row justify-between items-center gap-4 border-b-2 border-white"
             :class="{
-              'bg-teal-500': subworkflow?.status === 'Restock Request' || subworkflow?.status === 'Restocked',
+              'bg-red-500': subworkflow?.status === 'Restock Request' || subworkflow?.status === 'Restocked',
               'bg-red-500': subworkflow?.status === 'Restock Cancelled',
             }"
           >
@@ -116,16 +116,16 @@
               }}</span>
             </span>
           </div>
-          <div class="bg-teal-50 rounded-b shadow py-4 px-8 mb-6">
+          <div class="bg-red-50 rounded-b shadow py-4 px-8 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 mb-2">
               <div class="flex mb-1">
-                <span class="font-semibold text-teal-700 w-36 text-left"
+                <span class="font-semibold text-red-700 w-36 text-left"
                   >Action :</span
                 >
                 <span
                   class="ml-4 w-30 inline-block px-2 py-1 rounded-full font-semibold text-xs text-center"
                   :class="{
-                    'bg-teal-200 text-teal-700':
+                    'bg-red-200 text-red-700':
                       subworkflow?.status === 'Restock Request' || subworkflow?.status === 'Restocked',
                     'bg-red-200 text-red-700':
                       subworkflow?.status !== 'Restock Request' &&
@@ -137,7 +137,7 @@
               </div>
 
               <div class="flex mb-1">
-                <span class="font-semibold text-teal-700 w-36 text-left"
+                <span class="font-semibold text-red-700 w-36 text-left"
                   >Action By:</span
                 >
                 <span class="ml-4 w-40 text-left">{{
@@ -145,7 +145,7 @@
                 }}</span>
               </div>
               <div class="flex mb-1 mt-2">
-                <span class="font-semibold text-teal-700 w-36 text-left"
+                <span class="font-semibold text-red-700 w-36 text-left"
                   >Actioned On:</span
                 >
                 <span class="ml-4 w-40 text-left">{{
@@ -155,14 +155,14 @@
                 }}</span>
               </div>
               <div class="flex mb-1 mt-2" v-if="subworkflow?.status === 'Restocked'">
-                <span class="block font-semibold text-teal-700 w-36 text-left"
+                <span class="block font-semibold text-red-700 w-36 text-left"
                   >Received Date: </span>
                 <span class="ml-4 w-40 text-left">{{
                   subworkflow?.received_date
                 }}</span>
               </div>
               <div class="flex mb-1 mt-2">
-                <span class="font-semibold text-teal-700 w-36 text-left"
+                <span class="font-semibold text-red-700 w-36 text-left"
                   >Comments:</span
                 >
                 <span class="ml-4 w-40 text-left">{{
@@ -171,7 +171,7 @@
               </div>
 
               <div class="flex mb-1 mt-4" v-if="subworkflow?.status === 'Restock Request'">
-                <span class="font-semibold text-teal-700 w-36 text-left"
+                <span class="font-semibold text-red-700 w-36 text-left"
                   >Requested Date:</span
                 >
                 <span class="ml-4 w-40 text-left">{{
@@ -179,7 +179,7 @@
                 }}</span>
               </div>
               <div class="flex mb-1 mt-4" v-if="subworkflow?.status === 'Restock Request'">
-                <span class="font-semibold text-teal-700 w-36 text-left"
+                <span class="font-semibold text-red-700 w-36 text-left"
                   >Expected Delivery Date:</span
                 >
                 <span class="ml-4 w-40 text-left">{{
@@ -196,13 +196,13 @@
           :key="category"
           class="mb-10 px-2"
         >
-          <h3 class="text-teal-600 font-bold text-sm mb-2">
+          <h3 class="text-red-600 font-bold text-sm mb-2">
             <i class="fas fa-hard-hat mr-1"></i>{{ category }}
           </h3>
           <div class="overflow-x-auto">
             <table class="w-full text-xs border rounded">
               <thead>
-                <tr class="bg-teal-100 text-teal-700">
+                <tr class="bg-red-100 text-red-700">
                   <th class="py-2 px-3 text-left">Subcategory</th>
                   <th class="py-2 px-3 text-left">Material</th>
                   <th class="py-2 px-3 text-left" v-if="workflow?.current_status !== 'Restock Cancelled'">Requested Quantity </th>
@@ -263,7 +263,7 @@
         <div class="mt-8 p-3" v-if="workflow?.current_status === 'Restock Request'">
           <div>
             <div class="flex mb-1 mt-3">
-              <span class="font-semibold text-teal-700 w-36 text-left"
+              <span class="font-semibold text-red-700 w-36 text-left"
                 >Received Date:<span class="text-red-500 ml-1">*</span></span
               >
               <input
@@ -275,7 +275,7 @@
               />
             </div>
           </div>
-          <label class="block text-teal-700 font-semibold mb-2"
+          <label class="block text-red-700 font-semibold mb-2"
             >Comments<span class="text-red-500 ml-1">*</span></label
           >
           <textarea
@@ -291,7 +291,7 @@
           >
             <button
               @click="checkinStock"
-              class="bg-teal-700 text-white px-4 py-2 rounded font-semibold shadow hover:bg-gray-300 transition"
+              class="bg-red-700 text-white px-4 py-2 rounded font-semibold shadow hover:bg-gray-300 transition"
             >
               Check-In Stock
             </button>

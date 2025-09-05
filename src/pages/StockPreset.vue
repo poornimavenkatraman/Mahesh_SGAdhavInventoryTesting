@@ -1,34 +1,34 @@
 <template>
   <div class="p-4">
     <div class="flex items-center gap-3 mb-2">
-      <div class="bg-teal-200 rounded-full p-2">
-        <i class="fas fa-th-list text-xl text-teal-700"></i>
+      <div class="bg-red-200 rounded-full p-2">
+        <i class="fas fa-th-list text-xl text-red-700"></i>
       </div>
-      <h2 class="text-lg font-bold text-teal-700">Stock Presets</h2>
+      <h2 class="text-lg font-bold text-red-700">Stock Presets</h2>
       <div class="flex-1"></div>
       <!-- Add Category Icon Button -->
-      <button class="ml-2 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+      <button class="ml-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
         title="Create a new Category" @click="addCategory">
         <i class="fas fa-hard-hat"></i>
       </button>
       <!-- Add Subcategory Icon Button -->
-      <button class="ml-1 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+      <button class="ml-1 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
         title="Create a new Subcategory" @click="showAddSubcategory = true">
         <i class="fas fa-layer-group"></i>
       </button>
       <!-- Add New Material Icon Button -->
-      <button class="ml-1 bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+      <button class="ml-1 bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
         title="Add New Material" @click="showAddMaterial = true">
         <i class="fas fa-box"></i>
       </button>
     </div>
     <div v-for="category in sortedCategories" :key="category.id" class="p-3">
       <div class="flex items-center mb-3">
-        <div class="text-base font-semibold text-teal-600">
+        <div class="text-base font-semibold text-red-600">
           <i class="fas fa-hard-hat mr-2"></i>{{ category.category }}
         </div>
         <!-- <div class="flex-1"></div> -->
-        <button class="ml-5 text-teal-600 hover:text-teal-900 p-2 bg-teal-100 rounded-full border border-teal-200  shadow-sm transition" @click="editCategory(category)" title="Edit Category">
+        <button class="ml-5 text-red-600 hover:text-red-900 p-2 bg-red-100 rounded-full border border-red-200  shadow-sm transition" @click="editCategory(category)" title="Edit Category">
           <i class="fas fa-edit"></i>
         </button>
         <!-- <button class="ml-1 text-red-600 hover:text-red-900 p-2 rounded-full border border-red-200 bg-red-100 shadow-sm transition" @click="deleteCategory(category)" title="Delete Category">
@@ -37,12 +37,12 @@
       </div>
       <div class="flex gap-4 overflow-x-auto pb-2">
         <div v-for="sub in sortedSubcategories(category.id)" :key="sub.id"
-          class="border-t-4 border-teal-200 min-w-[150px] bg-white rounded-xl shadow-md p-5 flex flex-col items-center hover:scale-105 transition-transform cursor-pointer relative"
+          class="border-t-4 border-red-200 min-w-[150px] bg-white rounded-xl shadow-md p-5 flex flex-col items-center hover:scale-105 transition-transform cursor-pointer relative"
           @click="openSubcategoryPreset(sub, category)">
-          <i class="fas fa-layer-group text-3xl text-teal-500 mb-2"></i>
-          <span class="font-semibold text-teal-700 mb-1">{{ sub.subcategory }}</span>
+          <i class="fas fa-layer-group text-3xl text-red-500 mb-2"></i>
+          <span class="font-semibold text-red-700 mb-1">{{ sub.subcategory }}</span>
           <span class="text-gray-500 text-sm mb-1">{{ sub.desc || '' }}</span>
-          <span class="text-xs text-teal-600 font-semibold">
+          <span class="text-xs text-red-600 font-semibold">
             {{ materialCount(sub.id) }} material{{ materialCount(sub.id) === 1 ? '' : 's' }}
           </span>
           <!-- Options menu -->
@@ -52,7 +52,7 @@
                 <i class="fas fa-ellipsis-v text-gray-400"></i>
               </button>
               <div v-if="sub.optionsOpen" class="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
-                <button class="w-full text-left px-4 py-2 text-xs text-teal-700 hover:bg-teal-50 flex items-center gap-2" @click.stop="editSubcategory(sub, category)"><i class="fas fa-edit"></i> Edit</button>
+                <button class="w-full text-left px-4 py-2 text-xs text-red-700 hover:bg-red-50 flex items-center gap-2" @click.stop="editSubcategory(sub, category)"><i class="fas fa-edit"></i> Edit</button>
                 <!-- <button class="w-full text-left px-4 py-2 text-xs text-red-600 hover:bg-red-50 flex items-center gap-2" @click.stop="deleteSubcategory(sub)"><i class="fas fa-trash"></i> Delete</button> -->
               </div>
             </div>

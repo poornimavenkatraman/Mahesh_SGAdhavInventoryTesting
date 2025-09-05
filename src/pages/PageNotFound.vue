@@ -8,7 +8,7 @@
       <p class="text-gray-600 mb-6 text-center">
         The page you are looking for does not exist or you do not have permission to view it.
       </p>
-      <router-link to="/home" class="px-4 py-2 rounded bg-teal-600 text-white font-semibold hover:bg-teal-700">
+      <router-link to="/home" class="px-4 py-2 rounded bg-red-600 text-white font-semibold hover:bg-red-700">
         Go to Home
       </router-link>
     </div>

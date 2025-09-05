@@ -9,20 +9,20 @@
         <li>
           <router-link
             to="/home"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
             aria-current="page"
           >
             <i class="fas fa-building mr-1"></i>Home
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i class="fas fa-boxes mr-1"></i>{{ route.query.actionType }} Bulk
@@ -34,10 +34,10 @@
     <div class="p-4">
       <div class="w-full bg-white rounded">
         <div class="flex items-center gap-3">
-          <div class="bg-teal-200 rounded-full p-2">
-            <i class="fas fa-box-open text-xl text-teal-700"></i>
+          <div class="bg-red-200 rounded-full p-2">
+            <i class="fas fa-box-open text-xl text-red-700"></i>
           </div>
-          <h2 class="text-lg font-bold text-teal-700">
+          <h2 class="text-lg font-bold text-red-700">
             {{ route.query.actionType }} Supplier for Bulk Stock
           </h2>
         </div>
@@ -45,11 +45,11 @@
         <div class="px-4">
           <div class="flex flex-col md:flex-row items-center gap-6 mt-8 mb-10">
             <div class="flex flex-col gap-2">
-              <label class="font-medium text-teal-700">Supplier Name <span class="text-red-500">*</span></label>
+              <label class="font-medium text-red-700">Supplier Name <span class="text-red-500">*</span></label>
               <select
                 v-model="supplier"
                 required
-                class="w-60 p-1.5 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400 text-xs"
+                class="w-60 p-1.5 border border-red-200 rounded focus:ring-2 focus:ring-red-400 text-xs"
               >
                 <option disabled value="">Select Supplier</option>
                 <option
@@ -62,25 +62,25 @@
               </select>
             </div>
             <div class="flex flex-col gap-2">
-              <label class="font-medium text-teal-700">Ordered Date <span class="text-red-500">*</span></label>
+              <label class="font-medium text-red-700">Ordered Date <span class="text-red-500">*</span></label>
               <input
                 v-model="orderedDate"
                 type="date"
-                class="w-60 p-1.5 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400 text-xs"
+                class="w-60 p-1.5 border border-red-200 rounded focus:ring-2 focus:ring-red-400 text-xs"
                 required
               />
             </div>
             <div class="flex flex-col gap-2">
-              <label class="font-medium text-teal-700">{{ route.query.actionType == "Request" ? "Expected Delivery" : "Received" }} Date</label>
+              <label class="font-medium text-red-700">{{ route.query.actionType == "Request" ? "Expected Delivery" : "Received" }} Date</label>
               <input
                 v-model="deliveryDate"
                 type="date"
-                class="w-60 p-1.5 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400 text-xs"
+                class="w-60 p-1.5 border border-red-200 rounded focus:ring-2 focus:ring-red-400 text-xs"
               />
             </div>
           </div>
           <div class="flex items-center justify-center mb-8">
-            <div class="w-full border-t border-dashed border-teal-300"></div>
+            <div class="w-full border-t border-dashed border-red-300"></div>
           </div>
           <!-- Bulk Stock Entry Form -->
           <form @submit.prevent="submitBulkStock">
@@ -93,11 +93,11 @@
               <div class="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-4 mb-4">
                 
                 <div>
-                  <label class="block font-medium mb-1 text-teal-700">Category & Subcategory <span class="text-red-500">*</span></label>
+                  <label class="block font-medium mb-1 text-red-700">Category & Subcategory <span class="text-red-500">*</span></label>
                   <select
                     v-model="stock.subcategory"
                     required
-                    class="w-full p-2 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400"
+                    class="w-full p-2 border border-red-200 rounded focus:ring-2 focus:ring-red-400"
                   >
                     <option disabled value="">Select Category & Subcategory</option>
                     <optgroup
@@ -116,11 +116,11 @@
                   </select>
                 </div>
                 <div>
-                  <label class="block font-medium mb-1 text-teal-700">Material <span class="text-red-500">*</span></label>
+                  <label class="block font-medium mb-1 text-red-700">Material <span class="text-red-500">*</span></label>
                   <select
                     v-model="stock.material"
                     required
-                    class="w-full p-2 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400"
+                    class="w-full p-2 border border-red-200 rounded focus:ring-2 focus:ring-red-400"
                     :disabled="!stock.subcategory"
                   >
                     <option disabled value="">Select Material</option>
@@ -134,13 +134,13 @@
                   </select>
                 </div>
                 <div>
-                  <label class="block font-medium mb-1 text-teal-700">Quantity <span class="text-red-500">*</span></label>
+                  <label class="block font-medium mb-1 text-red-700">Quantity <span class="text-red-500">*</span></label>
                   <div class="relative w-full flex items-center gap-2">
                     <input
                       v-model.number="stock.quantity"
                       type="number"
                       min="1"
-                      class="w-full p-2 pr-12 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400"
+                      class="w-full p-2 pr-12 border border-red-200 rounded focus:ring-2 focus:ring-red-400"
                       required
                     />
                     <span
@@ -172,25 +172,25 @@
               <button
                 type="button"
                 @click="addStockRow"
-                class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded shadow flex items-center gap-2"
+                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow flex items-center gap-2"
               >
                 <i class="fas fa-plus"></i> Add Another Stock
               </button>
             </div>
             <div class="w-96 mt-4">
-                <label class="block font-medium mb-1 text-teal-700"
+                <label class="block font-medium mb-1 text-red-700"
                 >Comments <span class="text-red-500">*</span></label>
                 <textarea
                 v-model="comments"
                 rows="2"
-                class="w-full p-2 border border-teal-200 rounded focus:ring-2 focus:ring-teal-400"
+                class="w-full p-2 border border-red-200 rounded focus:ring-2 focus:ring-red-400"
                 required
                 ></textarea>
             </div>
             <div class="text-center mt-4">
               <button
                 type="submit"
-                class="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded shadow transition flex items-center justify-center mx-auto"
+                class="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded shadow transition flex items-center justify-center mx-auto"
               >
                 <i class="fas fa-layer-group mr-2"></i> {{ route.query.actionType }} Stock
               </button>

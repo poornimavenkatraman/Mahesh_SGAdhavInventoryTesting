@@ -9,19 +9,19 @@
         <li>
           <router-link
             to="/reports"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-chart-bar mr-1 text-[11px]"></i> Reports
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right text-[10px]"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i class="fas fa-cubes mr-1 text-[11px]"></i> Availability at HO
@@ -32,20 +32,20 @@
     </nav>
     <div class="flex items-center justify-between mb-6 gap-4">
       <div class="flex items-center gap-3">
-        <div class="bg-teal-100 rounded-full p-3 flex items-center justify-center">
-          <i class="fas fa-cubes text-lg text-teal-700"></i>
+        <div class="bg-red-100 rounded-full p-3 flex items-center justify-center">
+          <i class="fas fa-cubes text-lg text-red-700"></i>
         </div>
-        <h2 class="text-lg font-bold text-teal-700 tracking-tight">Availability at HO</h2>
+        <h2 class="text-lg font-bold text-red-700 tracking-tight">Availability at HO</h2>
       </div>
       <div class="flex items-center gap-2">
         <button
-          class="px-3 py-2 rounded-xl bg-teal-50 hover:bg-teal-200 text-teal-700 text-xs font-semibold shadow transition"
+          class="px-3 py-2 rounded-xl bg-red-50 hover:bg-red-200 text-red-700 text-xs font-semibold shadow transition"
           :disabled="!rows.length"
           @click="exportCSV"
         >
           <i class="fas fa-file-csv mr-1"></i> Export CSV
         </button>
-        <router-link to="/reports" class="px-3 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-teal-700 text-xs font-semibold shadow transition">
+        <router-link to="/reports" class="px-3 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-red-700 text-xs font-semibold shadow transition">
           <i class="fas fa-arrow-left mr-1"></i> Back
         </router-link>
       </div>
@@ -55,9 +55,9 @@
         <div
           v-for="grp in grouped"
           :key="grp.category"
-          class="rounded border border-teal-100 shadow-lg bg-white"
+          class="rounded border border-red-100 shadow-lg bg-white"
         >
-          <div class="px-4 py-3 font-semibold bg-teal-50 rounded-t-2xl text-xs text-teal-700">
+          <div class="px-4 py-3 font-semibold bg-red-50 rounded-t-2xl text-xs text-red-700">
             {{ grp.category }}
           </div>
           <div class="p-3">

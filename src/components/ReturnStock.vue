@@ -18,15 +18,15 @@
       >
         <button
           @click="$emit('close')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-teal-600 text-base"
+          class="absolute top-4 right-4 text-gray-400 hover:text-red-600 text-base"
           aria-label="Close"
         >
           <i class="fas fa-times"></i>
         </button>
         <div
-          class="bg-teal-200 rounded-full p-3 flex items-center justify-center shadow mb-2 mx-auto"
+          class="bg-red-200 rounded-full p-3 flex items-center justify-center shadow mb-2 mx-auto"
         >
-          <i class="fas text-lg text-teal-600"
+          <i class="fas text-lg text-red-600"
           :class="{
             'fa-undo-alt': props.actionType === 'Return',
             'fa-arrow-down': props.actionType === 'Consume'
@@ -34,14 +34,14 @@
           ></i>
         </div>
         <div class="w-full text-center">
-          <div class="text-xl font-bold text-teal-700">{{ props.actionType === 'Return' ? 'Return Stock to HO' : 'Mark Stock Consumption at Site' }}</div>
+          <div class="text-xl font-bold text-red-700">{{ props.actionType === 'Return' ? 'Return Stock to HO' : 'Mark Stock Consumption at Site' }}</div>
           <div class="text-xs text-gray-500">
             Select material to {{ props.actionType === 'Return' ? 'return from site' : 'mark consumption at site' }}
           </div>
         </div>
       </div>
       <div class="px-6 bg-white rounded-b-xl">
-        <label class="block font-semibold mb-2 text-teal-700 text-xs"
+        <label class="block font-semibold mb-2 text-red-700 text-xs"
           >Select Site<span class="text-red-500 ml-1">*</span></label
         >
         <Dropdown
@@ -51,21 +51,21 @@
           optionLabel="name"
           optionValue="id"
           placeholder="Select a site..."
-          class="w-full bg-white border border-teal-300 rounded-lg shadow focus:ring-2 focus:ring-teal-400"
+          class="w-full bg-white border border-red-300 rounded-lg shadow focus:ring-2 focus:ring-red-400"
           required
         />
         <div class="bg-white rounded-b-xl mt-5">
-          <label class="block font-semibold mb-2 text-teal-700 text-xs"
+          <label class="block font-semibold mb-2 text-red-700 text-xs"
             >Material<span class="text-red-500 ml-1">*</span></label
           >
           <div
             v-if="loadingMaterials"
             class="w-full flex flex-col items-center justify-center py-8"
           >
-            <span class="animate-spin text-3xl text-teal-400 mb-2">
+            <span class="animate-spin text-3xl text-red-400 mb-2">
               <i class="fas fa-spinner"></i>
             </span>
-            <span class="text-teal-600 text-sm font-semibold"
+            <span class="text-red-600 text-sm font-semibold"
               >Loading Available Materials...</span
             >
           </div>
@@ -79,7 +79,7 @@
             optionGroupChildren="items"
             filter
             placeholder="Search material..."
-            class="w-full mb-6 bg-white border border-teal-300 rounded-lg shadow focus:ring-2 focus:ring-teal-400"
+            class="w-full mb-6 bg-white border border-red-300 rounded-lg shadow focus:ring-2 focus:ring-red-400"
             :itemTemplate="materialItemTemplate"
             :optionGroupTemplate="groupTemplate"
             required
@@ -87,21 +87,21 @@
           <div v-if="selectedMaterialObj" class="mt-0">
             <div class="flex gap-4 mb-6" >
               <div class="flex flex-col flex-1 justify-center" v-if="props.actionType === 'Return'">
-                <label class="font-semibold mb-1 text-teal-700 text-xs"
+                <label class="font-semibold mb-1 text-red-700 text-xs"
                   >Return Date<span class="text-red-500 ml-1">*</span></label
                 >
                 <input
                   v-model="returnDate"
                   type="date"
-                  class="w-full border border-teal-200 rounded px-3 py-2"
+                  class="w-full border border-red-200 rounded px-3 py-2"
                   required
                 />
               </div>
               <div class="flex flex-col flex-1 justify-center">
-                <label class="font-semibold mb-1 text-teal-700 text-xs"
+                <label class="font-semibold mb-1 text-red-700 text-xs"
                   >{{ props.actionType === 'Return' ? 'Return Quantity' : 'Consumption Quantity' }}<span class="text-red-500 ml-1">*</span>
                   <span
-                    class="ml-1 inline-block bg-teal-100 text-teal-700 font-semibold rounded px-3 py-1 text-[10px]"
+                    class="ml-1 inline-block bg-red-100 text-red-700 font-semibold rounded px-3 py-1 text-[10px]"
                   >
                     Available ({{
                       selectedMaterialObj.available_at_site
@@ -113,21 +113,21 @@
                   v-model.number="returnQty"
                   min="1"
                   :max="selectedMaterialObj.available_at_site"
-                  class="w-full p-2 border border-teal-200 rounded-lg focus:ring-2 focus:ring-teal-500 text-xs"
+                  class="w-full p-2 border border-red-200 rounded-lg focus:ring-2 focus:ring-red-500 text-xs"
                   required
                 />
               </div>
             </div>
 
             <div class="bg-white rounded-b-xl">
-              <label class="block font-semibold mb-2 text-teal-700 text-xs"
+              <label class="block font-semibold mb-2 text-red-700 text-xs"
                 >Comments<span class="text-red-500 ml-1">*</span></label
               >
               <textarea
                 required
                 v-model="comments"
                 rows="3"
-                class="w-full p-2 border border-teal-200 rounded-lg focus:ring-2 focus:ring-teal-400 mb-4 text-xs"
+                class="w-full p-2 border border-red-200 rounded-lg focus:ring-2 focus:ring-red-400 mb-4 text-xs"
               ></textarea>
               <button
                 @click="submitReturn"
@@ -136,7 +136,7 @@
                   returnQty < 1 ||
                   returnQty > selectedMaterialObj.available_at_site
                 "
-                class="cursor-pointer px-8 py-3 mb-6 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow transition flex items-center justify-center mx-auto text-xs font-semibold"
+                class="cursor-pointer px-8 py-3 mb-6 bg-red-600 hover:bg-red-700 text-white rounded-full shadow transition flex items-center justify-center mx-auto text-xs font-semibold"
               >
                 <i class="fas fa-undo-alt mr-2"></i> Return to HO
               </button>
@@ -461,13 +461,13 @@ function groupTemplate(option: any) {
   const [category, subcategory] = option.label.split(" / ");
   return h(
     "div",
-    { class: "flex gap-2 items-center py-1 px-2 bg-teal-50 rounded" },
+    { class: "flex gap-2 items-center py-1 px-2 bg-red-50 rounded" },
     [
       h(
         "span",
         {
           class:
-            "inline-block text-xs font-bold text-white bg-teal-600 rounded-full px-2 py-1",
+            "inline-block text-xs font-bold text-white bg-red-600 rounded-full px-2 py-1",
         },
         category
       ),

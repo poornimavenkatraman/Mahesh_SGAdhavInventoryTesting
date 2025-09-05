@@ -19,13 +19,13 @@ const type = computed(() => messageStore.type);
 const bgClass = computed(() => {
   if (type.value === 'success') return 'bg-green-100 text-green-800';
   if (type.value === 'error') return 'bg-red-100 text-red-800';
-  if (type.value === 'info') return 'bg-blue-100 text-blue-800';
+  if (type.value === 'info') return 'bg-red-100 text-red-800';
   return 'bg-gray-100 text-gray-800';
 });
 const borderClass = computed(() => {
   if (type.value === 'success') return 'border-green-300';
   if (type.value === 'error') return 'border-red-300';
-  if (type.value === 'info') return 'border-blue-300';
+  if (type.value === 'info') return 'border-red-300';
   return 'border-gray-300';
 });
 function close() {

@@ -15,7 +15,7 @@
             class="absolute left-3 top-1/2 -translate-y-1/2"
             :class="isDark ? 'text-gray-400' : 'text-gray-400'"
           >
-            <i class="fas fa-search text-teal-600 text-base"></i>
+            <i class="fas fa-search text-red-600 text-base"></i>
           </span>
           <InputText
             v-model="globalFilter"
@@ -24,7 +24,7 @@
             :class="
               isDark
                 ? 'bg-gray-800 text-gray-100 border-gray-700 placeholder-gray-400'
-                : 'bg-white text-teal-900 border-teal-200 placeholder-teal-400'
+                : 'bg-white text-red-900 border-red-200 placeholder-red-400'
             "
             style="
               padding-left: 2.75rem;
@@ -38,7 +38,7 @@
       <!-- Filters & Export (right) -->
       <div class="flex items-center gap-2 justify-end flex-wrap">
         <span
-          :class="isDark ? 'text-teal-200' : 'text-teal-700'"
+          :class="isDark ? 'text-red-200' : 'text-red-700'"
           class="font-semibold text-[13px]"
           >Category:</span
         >
@@ -53,7 +53,7 @@
           showClear
         />
         <span
-          :class="isDark ? 'text-teal-200' : 'text-teal-700'"
+          :class="isDark ? 'text-red-200' : 'text-red-700'"
           class="font-semibold text-[13px]"
           >Subcategory:</span
         >
@@ -74,8 +74,8 @@
           @click="exportToExcel"
           :class="
             isDark
-              ? 'bg-teal-700 hover:bg-teal-800 text-white'
-              : 'bg-teal-600 hover:bg-teal-700 text-white'
+              ? 'bg-red-700 hover:bg-red-800 text-white'
+              : 'bg-red-600 hover:bg-red-700 text-white'
           "
           class="px-4 py-2 rounded shadow flex items-center gap-2 transition-colors"
         >
@@ -87,14 +87,14 @@
 
     <div v-if="inventoryStore.loading" class="flex items-center justify-center py-10">
       <span class="flex items-center gap-3">
-        <!-- <svg class="animate-spin h-6 w-6 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <!-- <svg class="animate-spin h-6 w-6 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
         </svg> -->
-        <span class="animate-spin text-3xl text-teal-400 mb-2">
+        <span class="animate-spin text-3xl text-red-400 mb-2">
                 <i class="fas fa-spinner"></i>
             </span>
-        <span class="text-teal-600 text-lg font-semibold animate-pulse">Loading inventory...</span>
+        <span class="text-red-600 text-lg font-semibold animate-pulse">Loading inventory...</span>
       </span>
     </div>
     <!-- DataTable with horizontal scroll and theme support -->
@@ -164,7 +164,7 @@
               <span class="header-circle-icon" title="Current status count"
                 >C</span
               >
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Current status count
               </span> -->
             </div>
@@ -186,7 +186,7 @@
               <span class="header-circle-icon" title="Current status count"
                 >C</span
               >
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Current status count
               </span> -->
             </div>
@@ -205,7 +205,7 @@
             <div class="flex items-center gap-2 group relative">
               <span>Stock Requested by Site</span>
               <span class="header-circle-icon" title="Till date count">C</span>
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Till date count
               </span> -->
             </div>
@@ -226,7 +226,7 @@
               <span class="header-circle-icon" title="Current status count"
                 >C</span
               >
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Current status count
               </span> -->
             </div>
@@ -247,7 +247,7 @@
               <span class="header-circle-icon" title="Till date count"
                 >T</span
               >
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Current status count
               </span> -->
             </div>
@@ -268,7 +268,7 @@
               <span class="header-circle-icon" title="Current status count"
                 >C</span
               >
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Current status count
               </span> -->
             </div>
@@ -287,7 +287,7 @@
             <div class="flex items-center gap-2 group relative">
               <span>Stock Consumed at Site</span>
               <span class="header-circle-icon" title="Till date count">T</span>
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Till date count
               </span> -->
             </div>
@@ -306,7 +306,7 @@
             <div class="flex items-center gap-2 group relative">
               <span>Stock Returned from Site</span>
               <span class="header-circle-icon" title="Till date count">C</span>
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Till date count
               </span> -->
             </div>
@@ -325,7 +325,7 @@
             <div class="flex items-center gap-2 group relative">
               <span>Stock Return Accepted from Site</span>
               <span class="header-circle-icon" title="Till date count">T</span>
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Till date count
               </span> -->
             </div>
@@ -344,7 +344,7 @@
             <div class="flex items-center gap-2 group relative">
               <span>Stock Requested from Supplier</span>
               <span class="header-circle-icon" title="Current status count">C</span>
-              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-teal-300 text-teal-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
+              <!-- <span class="absolute left-10 top-1/2 -translate-y-1/2 bg-white border border-red-300 text-red-700 px-2 py-1 rounded shadow text-xs opacity-0 group-hover:opacity-100 transition pointer-events-none z-10">
                 Current status count
               </span> -->
             </div>
@@ -352,13 +352,13 @@
         </Column>
         
         <template #expansion="slotProps">
-          <div class="bg-teal-50 p-2">
+          <div class="bg-red-50 p-2">
             <div class="mt-4 ml-10 mb-5">
               <h3
-                class="text-teal-700 font-bold text-sm mb-2 flex items-center"
+                class="text-red-700 font-bold text-sm mb-2 flex items-center"
               >
                 <span
-                  class="inline-block bg-teal-100 text-teal-700 rounded-full p-2 mr-2"
+                  class="inline-block bg-red-100 text-red-700 rounded-full p-2 mr-2"
                 >
                   <i class="fas fa-building"></i>
                 </span>
@@ -381,7 +381,7 @@
                   <template #body="siteProps">
                     <router-link
                       :to="`/sites/${siteProps.data.siteId}`"
-                      class="inline-block px-3 py-1 rounded-full bg-teal-100 text-teal-700 font-semibold shadow hover:bg-teal-200 hover:text-teal-900 transition cursor-pointer border border-teal-300"
+                      class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-700 font-semibold shadow hover:bg-red-200 hover:text-red-900 transition cursor-pointer border border-red-300"
                     >
                       {{ siteProps.data.siteName }}
                     </router-link>
@@ -536,11 +536,11 @@
                     class="flex flex-col items-center justify-center gap-2 w-full mx-auto"
                   >
                     <span
-                      class="inline-block bg-teal-100 rounded-full p-2 shadow-md"
+                      class="inline-block bg-red-100 rounded-full p-2 shadow-md"
                     >
-                      <i class="fas fa-box-open text-sm text-teal-500"></i>
+                      <i class="fas fa-box-open text-sm text-red-500"></i>
                     </span>
-                    <span class="text-sm font-semibold text-teal-700"
+                    <span class="text-sm font-semibold text-red-700"
                       >No records found!</span
                     >
                   </div>
@@ -828,18 +828,24 @@ const isDark = ref(
 }
 
 .p-datatable-dark {
-  background-color: #1f2937 !important;
-  color: #f3f4f6 !important;
+  /*background-color: #1f2937 !important;
+  color: #f3f4f6 !important;*/
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 
 .p-datatable-dark .p-datatable-thead > tr > th,
 .p-datatable-dark .p-datatable-tbody > tr > td {
-  background-color: #1f2937 !important;
-  color: #f3f4f6 !important;
+  /*background-color: #1f2937 !important;
+  color: #f3f4f6 !important;*/
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 
 .p-datatable-dark .p-datatable-tbody > tr.p-highlight {
-  background-color: #334155 !important;
+  /*background-color: #334155 !important;*/
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 
 ::v-global(.p-datatable-emptymessage) {
@@ -847,15 +853,19 @@ const isDark = ref(
 }
 
 ::v-global(.p-datatable-column-sorted) {
-  background-color: #ccfbf1 !important;
+  //background-color: #ccfbf1 !important;
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 
 ::v-global(.p-badge) {
-  background-color: #14b8a6 !important; /* teal-500 */
+  //background-color: #14b8a6 !important; /* teal-500 */
+  background-color: #dc2626 !important; /* Tailwind red-600 */
+  color: white !important;
 }
 /* Reusable class for teal circle icons in table headers */
 .header-circle-icon {
-  @apply bg-teal-500 text-white font-semibold rounded-full w-5 h-5 flex items-center justify-center text-[9px] cursor-pointer shadow transition-shadow;
+  @apply bg-red-500 text-white font-semibold rounded-full w-5 h-5 flex items-center justify-center text-[9px] cursor-pointer shadow transition-shadow;
 }
 .group:hover .header-circle-icon {
   @apply shadow-lg;

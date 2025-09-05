@@ -1,12 +1,12 @@
 <template>
   <div class="mb-4">
-    <h3 class="text-teal-700 font-bold text-sm mb-2 flex items-center">
-      <span class="inline-block bg-teal-100 text-teal-700 rounded-full p-2 mr-2">
+    <h3 class="text-red-700 font-bold text-sm mb-2 flex items-center">
+      <span class="inline-block bg-red-100 text-red-700 rounded-full p-2 mr-2">
         <i class="fas fa-tasks"></i>
       </span>
       Workflow
     </h3>
-    <div class="bg-white rounded-lg shadow p-4 border border-teal-100">
+    <div class="bg-white rounded-lg shadow p-4 border border-red-100">
       <div class="flex items-center justify-center gap-4 w-full mx-auto"
         :class="getFullWorkflow(request.status, request.workflows).length == 1   ? 'max-w-sm' : getFullWorkflow(request.status, request.workflows).length == 2 ? 'max-w-md' : getFullWorkflow(request.status, request.workflows).length == 3 ? 'max-w-xl' : ''">
         <template v-if="request.workflows && request.workflows.length">

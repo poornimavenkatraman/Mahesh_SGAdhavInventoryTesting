@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-auto rounded mb-5 p-2">
     <table class="min-w-[900px] w-full rounded overflow-hidden">
-      <thead class="bg-teal-50 text-teal-700 text-left text-xs">
+      <thead class="bg-red-50 text-red-700 text-left text-xs">
         <tr>
           <th v-if="showIndex" class="px-3 py-2 font-semibold">#</th>
           <th v-for="c in columns" :key="c.key" class="px-3 py-2 font-semibold" :class="thClass(c)">
@@ -15,8 +15,8 @@
           :key="r.id || idx"
           :class="[
             'border-t transition text-xs',
-            idx % 2 === 0 ? 'bg-white' : 'bg-teal-50',
-            'hover:bg-teal-100'
+            idx % 2 === 0 ? 'bg-white' : 'bg-red-50',
+            'hover:bg-red-100'
           ]"
         >
           <td v-if="showIndex" class="px-3 py-2">{{ idx + 1 + indexOffset + page * pageSize }}</td>
@@ -25,7 +25,7 @@
           </td>
         </tr>
 
-        <tr v-if="showTotals" class="border-t bg-teal-100 font-bold text-teal-700 text-xs">
+        <tr v-if="showTotals" class="border-t bg-red-100 font-bold text-red-700 text-xs">
           <td v-if="showIndex" class="px-3 py-2">Totals</td>
           <td
             v-for="c in columns"
@@ -47,13 +47,13 @@
     <!-- Pagination controls -->
     <div v-if="rows.length > pageSize" class="flex justify-end items-center gap-2 mt-2 pr-2 text-xs">
       <button
-        class="px-2 py-1 rounded bg-teal-50 text-teal-700 hover:bg-teal-200 disabled:opacity-50"
+        class="px-2 py-1 rounded bg-red-50 text-red-700 hover:bg-red-200 disabled:opacity-50"
         :disabled="page === 0"
         @click="page--"
       >Prev</button>
       <span>Page {{ page + 1 }} / {{ totalPages }}</span>
       <button
-        class="px-2 py-1 rounded bg-teal-50 text-teal-700 hover:bg-teal-200 disabled:opacity-50"
+        class="px-2 py-1 rounded bg-red-50 text-red-700 hover:bg-red-200 disabled:opacity-50"
         :disabled="page >= totalPages - 1"
         @click="page++"
       >Next</button>

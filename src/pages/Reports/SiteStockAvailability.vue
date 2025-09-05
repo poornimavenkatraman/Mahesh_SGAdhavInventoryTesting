@@ -1,41 +1,41 @@
 <template>
   <div class="p-4 min-h-[60vh]">
-    <nav
-      class="flex items-center p-2 mb-3"
-      aria-label="Breadcrumb"
-      style="background: linear-gradient(90deg, #81e6d9 0%, #f0fdfa 100%)"
-    >
+    <nav class="flex items-center p-2 mb-3" aria-label="Breadcrumb"
+      style="background: linear-gradient(90deg, #81e6d9 0%, #f0fdfa 100%)">
       <ol class="flex items-center space-x-1">
         <li>
           <router-link
             to="/reports"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white font-semibold text-[9px] hover:bg-opacity-80 transition"
+            :class="theme.text"
           >
             <i class="fas fa-chart-bar mr-1 text-[11px]"></i> Reports
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1" :class="theme.subtleText">
             <i class="fas fa-chevron-right text-[10px]"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white font-semibold text-[9px]"
+            :class="theme.text"
             aria-current="page"
           >
-            <i class="fas fa-cubes mr-1 text-[11px]"></i> Site-Wise Stock Availability
-            Report
+            <i class="fas fa-cubes mr-1 text-[11px]"></i> Site-Wise Stock Availability Report
           </span>
         </li>
       </ol>
     </nav>
+
+    <!-- Heading -->
     <div class="flex items-center justify-between mb-6 gap-4">
       <div class="flex items-center gap-3">
-        <div class="bg-teal-200 rounded-full p-3 flex items-center justify-center">
-          <i class="fas fa-cubes text-lg text-teal-700"></i>
+        <div class="rounded-full p-3 flex items-center justify-center" :class="theme.bg">
+          <i class="fas fa-cubes text-lg" :class="theme.text"></i>
         </div>
-        <h2 class="text-lg font-bold text-teal-700 tracking-tight">Site-Wise Stock Availability</h2>
+        <h2 class="text-lg font-bold tracking-tight" :class="theme.text">Site-Wise Stock Availability</h2>
       </div>
       <div class="flex items-center gap-2">
         <select
@@ -50,48 +50,56 @@
         </select>
 
         <button
-          class="px-3 py-2 rounded-xl bg-teal-50 hover:bg-teal-200 text-teal-700 text-xs font-semibold shadow transition"
+          class="px-3 py-2 rounded-xl text-xs font-semibold shadow transition"
+          :class="[themeAccent.bg, themeAccent.hoverBg, theme.text]"
           :disabled="!rows.length"
           @click="exportCSV"
         >
           <i class="fas fa-file-csv mr-1"></i> Export CSV
         </button>
 
-        <router-link to="/reports" class="px-3 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-teal-700 text-xs font-semibold shadow transition">
+        <router-link
+          to="/reports"
+          class="px-3 py-2 rounded-xl bg-gray-200 hover:bg-gray-300 text-xs font-semibold shadow transition"
+          :class="theme.text"
+        >
           <i class="fas fa-arrow-left mr-1"></i> Back
         </router-link>
       </div>
     </div>
 
-      <!-- Grouped by Category -->
-      <div v-if="rows.length" class="space-y-6">
-        <div
-          v-for="grp in grouped"
-          :key="grp.category"
-          class="rounded border border-teal-100 shadow-lg bg-white"
-        >
-          <div class="px-4 py-3 font-semibold bg-teal-50 rounded text-xs text-teal-700">
-            {{ grp.category }}
-          </div>
-          <div class="p-3">
-            <SimpleTable
-              :columns="columns"
-              :rows="grp.items"
-              :showTotals="true"
-              :pageSize="10"
-              class="text-xs"
-            />
-          </div>
+    <!-- Grouped Table Output -->
+    <div v-if="rows.length" class="space-y-6">
+      <div
+        v-for="grp in grouped"
+        :key="grp.category"
+        class="rounded shadow-lg bg-white"
+        :class="theme.border"
+      >
+        <div class="px-4 py-3 font-semibold rounded text-xs" :class="[theme.bg, theme.text]">
+          {{ grp.category }}
+        </div>
+        <div class="p-3">
+          <SimpleTable
+            :columns="columns"
+            :rows="grp.items"
+            :showTotals="true"
+            :pageSize="10"
+            class="text-xs"
+          />
         </div>
       </div>
+    </div>
 
-      <div v-else class="text-gray-400 text-center py-10 text-xs">
-        {{
-          sites.length ? "No data available for this site." : "No sites found."
-        }}
-      </div>
+    <!-- Empty Message -->
+    <div v-else class="text-center py-10 text-xs text-gray-400">
+      {{
+        sites.length ? "No data available for this site." : "No sites found."
+      }}
+    </div>
   </div>
 </template>
+
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
@@ -103,6 +111,9 @@ import {
   type RowByMaterial,
 } from "@/services/reports/siteStockAvailability.service";
 import { toCSV } from "@/services/reports/stockSummary.service";
+import { useThemeColors } from '@/composables/useThemeColors';
+const theme = useThemeColors('error');
+const themeAccent = useThemeColors('error');
 
 const sites = ref<SiteOption[]>([]);
 const selectedSiteId = ref<string>("");

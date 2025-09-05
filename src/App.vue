@@ -20,7 +20,7 @@ const router = useRouter();
 <template>
   <GlobalMessage />
   <!-- <div v-if="loading" class="flex items-center justify-center min-h-screen">
-    <span class="text-teal-600 text-lg font-semibold">Checking session...</span>
+    <span class="text-red-600 text-lg font-semibold">Checking session...</span>
   </div>
   <div v-else> -->
     <router-view />

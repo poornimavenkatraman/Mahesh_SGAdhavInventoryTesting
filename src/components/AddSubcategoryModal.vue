@@ -12,7 +12,7 @@
       >
         <i class="fas fa-times"></i>
       </button>
-      <h3 class="text-teal-700 font-bold text-lg mb-4 flex items-center">
+      <h3 class="text-red-700 font-bold text-lg mb-4 flex items-center">
         <i class="fas fa-layer-group mr-2"></i>Add Subcategory
       </h3>
       <label class="block text-xs font-semibold mb-2"
@@ -31,13 +31,13 @@
       >
         <template #chip="{ value, removeCallback }">
           <span
-            class="p-1 px-2 rounded-full bg-teal-100 text-teal-800 text-xs font-semibold mr-1 flex items-center"
+            class="p-1 px-2 rounded-full bg-red-100 text-red-800 text-xs font-semibold mr-1 flex items-center"
           >
             {{ value.subcategory }}
             <button
               v-if="!isSubcategoryInitiallySelected(value)"
               @click.prevent="removeCallback"
-              class="ml-1 text-teal-600 hover:text-red-500"
+              class="ml-1 text-red-600 hover:text-red-500"
               style="font-size: 12px"
               title="Remove"
               type="button"
@@ -57,7 +57,7 @@
       <div class="mt-4 flex justify-end">
         <button
           @click="addSubcategories"
-          class="bg-teal-600 text-white px-4 py-1 rounded shadow text-xs font-semibold hover:bg-teal-700"
+          class="bg-red-600 text-white px-4 py-1 rounded shadow text-xs font-semibold hover:bg-red-700"
         >
           Add
         </button>

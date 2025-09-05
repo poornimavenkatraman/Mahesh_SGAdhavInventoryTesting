@@ -3,7 +3,11 @@ import { ref, computed, watch, onMounted } from "vue";
 import { useSiteStore } from "@/stores/siteStore";
 import { useInventoryStore } from "@/stores/inventoryStore";
 import { useRouter } from "vue-router";
-import { useMessageStore } from "@/stores/messageStore"
+import { useMessageStore } from "@/stores/messageStore";
+import { useThemeColors } from "@/composables/useThemeColors";
+
+const theme = useThemeColors('error');
+const themeAccent = useThemeColors('error');
 
 const siteStore = useSiteStore();
 const inventoryStore = useInventoryStore();
@@ -12,15 +16,9 @@ const messageStore = useMessageStore();
 
 const emit = defineEmits(["close"]);
 const props = defineProps({
-  siteId: {
-    type: String,
-    required: false
-  },
+  siteId: String,
   siteLocked: Boolean,
-  root_page: {
-    type: String,
-    default: "Home"
-  }
+  root_page: { type: String, default: "Home" }
 });
 
 const today = new Date();
@@ -38,11 +36,10 @@ const form = ref({
   comments: "",
 });
 
-// Watch for changes in props.site and update form.site accordingly
 watch(
   () => props.siteId,
   (newSite) => {
-    if (newSite && newSite.id) {
+    if (newSite?.id) {
       form.value.site = newSite.id;
     }
   },
@@ -52,29 +49,16 @@ watch(
 onMounted(async () => {
   await siteStore.fetchAccessibleSites();
   await inventoryStore.fetchCategories();
-
-  // Preselect requestDate as today and deliveryDate as tomorrow
-  const today = new Date();
-  const tomorrow = new Date();
-  tomorrow.setDate(today.getDate() + 1);
-  form.value.requestDate = today.toISOString().slice(0, 10);
-  form.value.deliveryDate = tomorrow.toISOString().slice(0, 10);
 });
 
 const sites = computed(() =>
-  siteStore.accessibleSites
-    .map((s) => ({ id: s.id, name: s.site }))
-    .sort((a, b) => a.name.localeCompare(b.name))
+  siteStore.accessibleSites.map((s) => ({ id: s.id, name: s.site })).sort((a, b) => a.name.localeCompare(b.name))
 );
 const categories = computed(() =>
-  inventoryStore.categories
-    .map((c) => ({ id: c.id, name: c.category }))
-    .sort((a, b) => a.name.localeCompare(b.name))
+  inventoryStore.categories.map((c) => ({ id: c.id, name: c.category })).sort((a, b) => a.name.localeCompare(b.name))
 );
 const subcategories = computed(() => {
-  const catObj = inventoryStore.categories.find(
-    (c) => c.id === form.value.category
-  );
+  const catObj = inventoryStore.categories.find((c) => c.id === form.value.category);
   if (!catObj) return [];
   return inventoryStore.subcategoriesByCategoryList
     .filter((sc) => sc.category_id === catObj.id)
@@ -82,52 +66,32 @@ const subcategories = computed(() => {
     .sort((a, b) => a.name.localeCompare(b.name));
 });
 const materials = computed(() => {
-  const subcatObj = inventoryStore.subcategoriesByCategoryList.find(
-    (sc) => sc.id === form.value.subcategory
-  );
+  const subcatObj = inventoryStore.subcategoriesByCategoryList.find((sc) => sc.id === form.value.subcategory);
   if (!subcatObj) return [];
   return inventoryStore.materialsBySubcategoryList
     .filter((msc) => msc.subcategory_id === subcatObj.id)
     .map((msc) => ({ id: msc.id, name: msc.material, uom: msc.uom }))
     .sort((a, b) => a.name.localeCompare(b.name));
 });
-
-watch(
-  () => form.value.category,
-  async (categoryId) => {
-    form.value.subcategory = "";
-    form.value.material = "";
-    // Defensive: get category id from categories
-    const catObj = inventoryStore.categories.find(
-      (c) => c.id === categoryId
-    );
-    if (catObj && catObj.id) {
-      await inventoryStore.fetchSubcategoriesByCategory(catObj.id);
-    }
-  }
-);
-
-watch(
-  () => form.value.subcategory,
-  async (subcategoryId) => {
-    form.value.material = "";
-    // Defensive: get subcategory id from subcategoriesByCategoryList
-    const subcatObj = inventoryStore.subcategoriesByCategoryList.find(
-      (sc) => sc.id === subcategoryId
-    );
-    if (subcatObj && subcatObj.id) {
-      await inventoryStore.fetchMaterialsBySubcategory(subcatObj.id);
-    }
-  }
-);
-
 const selectedUom = computed(() => {
-  const mat = materials.value.find((m) => m.name === form.value.material);
+  const mat = materials.value.find((m) => m.id === form.value.material);
   return mat ? mat.uom : "";
 });
 
+watch(() => form.value.category, async (categoryId) => {
+  form.value.subcategory = "";
+  form.value.material = "";
+  const catObj = inventoryStore.categories.find((c) => c.id === categoryId);
+  if (catObj?.id) await inventoryStore.fetchSubcategoriesByCategory(catObj.id);
+});
+
+watch(() => form.value.subcategory, async (subcategoryId) => {
+  form.value.material = "";
+  const subcatObj = inventoryStore.subcategoriesByCategoryList.find((sc) => sc.id === subcategoryId);
+  if (subcatObj?.id) await inventoryStore.fetchMaterialsBySubcategory(subcatObj.id);
+});
+
 async function submitRequest() {
-  // Validate mandatory fields except deliveryDate
   if (
     !form.value.site ||
     !form.value.category ||
@@ -152,10 +116,7 @@ async function submitRequest() {
   };
 
   const response = await inventoryStore.submitStockRequest(requestPayload);
-
-  // Show global message and route if response exists
-  if (response && response.route) {
-    // Use global message handler
+  if (response?.route) {
     messageStore.showMessage(response.message, "success");
     router.push(response.route);
   }
@@ -166,176 +127,108 @@ async function submitRequest() {
 <template>
   <div
     class="fixed inset-0 z-50 flex items-center justify-center"
-    style="
-      background: linear-gradient(
-        135deg,
-        rgba(13, 148, 136, 0.25) 0%,
-        rgba(255, 255, 255, 0.7) 50%,
-        rgba(13, 148, 136, 0.25) 100%
-      );
-      backdrop-filter: blur(2px);
-    "
+    :style="{ background: colorTokens.backdropGradient.error, backdropFilter: 'blur(2px)' }"
   >
-    <div
-      class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-lg relative overflow-y-auto max-h-[90vh]"
-    >
+    <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-lg relative overflow-y-auto max-h-[90vh]">
+      <!-- Close Button -->
       <button
         @click="$emit('close')"
-        class="absolute top-4 right-4 text-gray-400 hover:text-teal-600 text-base"
+        class="absolute top-4 right-4 text-gray-400"
+        :class="theme.hoverText"
         title="Close"
       >
         <i class="fas fa-times"></i>
       </button>
+
+      <!-- Title -->
       <div class="flex flex-col items-center mb-6">
-        <div
-          class="w-12 h-12 bg-teal-200 rounded-full flex items-center justify-center mb-2"
-        >
-          <i class="fas fa-boxes-stacked text-xl text-teal-600"></i>
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-2" :class="theme.bg">
+          <i class="fas fa-boxes-stacked text-xl" :class="theme.text"></i>
         </div>
-        <h2 class="text-xl font-bold text-teal-700 mb-1">
-          Request HO for Stock
-        </h2>
-        <span class="text-gray-500 text-xs"
-          >Enter details to request HO for stock towards site</span
-        >
+        <h2 class="text-xl font-bold mb-1" :class="theme.text">Request HO for Stock</h2>
+        <span class="text-xs text-gray-500">Enter details to request HO for stock towards site</span>
       </div>
 
+      <!-- Form -->
       <form @submit.prevent="submitRequest">
-        <div class="mb-4 flex gap-4">
-          <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >Site <span class="text-red-500">*</span></label
-            >
-            <select
-              v-model="form.site"
-              class="w-full border border-teal-200 rounded px-3 py-2"
-              :disabled="siteLocked"
-              required
-            >
-              <option value="">Select Site</option>
-              <option v-for="s in sites" :key="s.id" :value="s.id">
-                {{ s.name }}
-              </option>
-            </select>
-          </div>
+        <!-- Site -->
+        <div class="mb-4">
+          <label class="block font-semibold mb-1" :class="theme.text">Site <span class="text-red-500">*</span></label>
+          <select v-model="form.site" required :disabled="siteLocked" class="w-full p-2 border rounded"
+            :class="[theme.border, theme.ring, { 'bg-gray-200': siteLocked }]">
+            <option value="">Select Site</option>
+            <option v-for="s in sites" :key="s.id" :value="s.id">{{ s.name }}</option>
+          </select>
         </div>
-        <!-- Category & Subcategory (Second Line) -->
+
+        <!-- Category & Subcategory -->
         <div class="mb-4 flex gap-4">
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >Category <span class="text-red-500">*</span></label
-            >
-            <select
-              v-model="form.category"
-              class="w-full border border-teal-200 rounded px-3 py-2"
-              required
-            >
+            <label class="block font-semibold mb-1" :class="theme.text">Category <span class="text-red-500">*</span></label>
+            <select v-model="form.category" required class="w-full p-2 border rounded" :class="[theme.border, theme.ring]">
               <option value="">Select Category</option>
-              <option v-for="c in categories" :key="c.id" :value="c.id">
-                {{ c.name }}
-              </option>
+              <option v-for="c in categories" :key="c.id" :value="c.id">{{ c.name }}</option>
             </select>
           </div>
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >SubCategory <span class="text-red-500">*</span></label
-            >
-            <select
-              v-model="form.subcategory"
-              class="w-full border border-teal-200 rounded px-3 py-2"
-              required
-            >
+            <label class="block font-semibold mb-1" :class="theme.text">SubCategory <span class="text-red-500">*</span></label>
+            <select v-model="form.subcategory" required class="w-full p-2 border rounded" :class="[theme.border, theme.ring]">
               <option value="">Select SubCategory</option>
-              <option v-for="sc in subcategories" :key="sc.id" :value="sc.id">
-                {{ sc.name }}
-              </option>
+              <option v-for="sc in subcategories" :key="sc.id" :value="sc.id">{{ sc.name }}</option>
             </select>
           </div>
         </div>
+
         <!-- Material & Quantity -->
-        <div class="mb-4 flex gap-4 items-end">
+        <div class="mb-4 flex gap-4">
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >Material <span class="text-red-500">*</span></label
-            >
-            <select
-              v-model="form.material"
-              class="w-full border border-teal-200 rounded px-3 py-2"
-              required
-            >
+            <label class="block font-semibold mb-1" :class="theme.text">Material <span class="text-red-500">*</span></label>
+            <select v-model="form.material" required class="w-full p-2 border rounded" :class="[theme.border, theme.ring]">
               <option value="">Select Material</option>
-              <option v-for="p in materials" :key="p.id" :value="p.id">
-                {{ p.name }}
-              </option>
+              <option v-for="p in materials" :key="p.id" :value="p.id">{{ p.name }}</option>
             </select>
           </div>
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >Quantity <span class="text-red-500">*</span></label
-            >
+            <label class="block font-semibold mb-1" :class="theme.text">Quantity <span class="text-red-500">*</span></label>
             <div class="relative">
-              <input
-                v-model="form.quantity"
-                type="number"
-                min="1"
-                required
-                class="w-full border border-teal-200 rounded px-3 py-2 pr-12"
-              />
-              <span
-                class="absolute right-3 top-1/2 -translate-y-1/2 text-teal-700 font-semibold"
-                >{{ selectedUom || "PCS" }}</span
-              >
+              <input v-model="form.quantity" type="number" min="1" required class="w-full p-2 border rounded pr-12"
+                :class="[theme.border, theme.ring]" />
+              <span class="absolute right-3 top-1/2 -translate-y-1/2 font-semibold" :class="theme.text">
+                {{ selectedUom || "PCS" }}
+              </span>
             </div>
           </div>
         </div>
+
         <!-- Dates -->
         <div class="mb-4 flex gap-4">
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >Request Date <span class="text-red-500">*</span></label
-            >
-            <input
-              v-model="form.requestDate"
-              type="date"
-              class="w-full border border-teal-200 rounded px-3 py-2"
-              required
-            />
+            <label class="block font-semibold mb-1" :class="theme.text">Request Date <span class="text-red-500">*</span></label>
+            <input v-model="form.requestDate" type="date" required class="w-full p-2 border rounded"
+              :class="[theme.border, theme.ring]" />
           </div>
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1"
-              >Expected Delivery Date</label
-            >
-            <input
-              v-model="form.deliveryDate"
-              type="date"
-              class="w-full border border-teal-200 rounded px-3 py-2"
-            />
+            <label class="block font-semibold mb-1" :class="theme.text">Expected Delivery Date</label>
+            <input v-model="form.deliveryDate" type="date" class="w-full p-2 border rounded" :class="[theme.border, theme.ring]" />
           </div>
         </div>
-        <!-- Description -->
+
+        <!-- Comments -->
         <div class="mb-4">
-          <label class="block font-semibold text-teal-700 mb-1"
-            >Comments <span class="text-red-500">*</span></label
-          >
-          <textarea
-            v-model="form.comments"
-            rows="2"
-            required
-            class="w-full border border-teal-200 rounded px-3 py-2"
-          ></textarea>
+          <label class="block font-semibold mb-1" :class="theme.text">Comments <span class="text-red-500">*</span></label>
+          <textarea v-model="form.comments" required rows="2" class="w-full p-2 border rounded"
+            :class="[theme.border, theme.ring]"></textarea>
         </div>
+
+        <!-- Buttons -->
         <div class="flex justify-end gap-2 mt-4">
-          <button
-            type="button"
-            @click="$emit('close')"
-            class="px-4 py-2 rounded bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300"
-          >
+          <button type="button" @click="$emit('close')"
+            class="px-4 py-2 rounded bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300">
             Cancel
           </button>
-          <button
-            type="submit"
-            class="px-4 py-2 rounded bg-teal-600 text-white font-semibold hover:bg-teal-700"
-          >
+          <button type="submit"
+            class="px-4 py-2 rounded text-white font-semibold"
+            :class="[themeAccent.bg, themeAccent.hoverBg]">
             Request
           </button>
         </div>

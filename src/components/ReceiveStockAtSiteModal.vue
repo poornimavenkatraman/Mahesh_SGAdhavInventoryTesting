@@ -4,17 +4,17 @@
     style="background: rgba(15,163,146,0.12); backdrop-filter: blur(3px)"
   >
     <div
-      class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-y-auto max-h-[92vh] border border-teal-100"
+      class="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-y-auto max-h-[92vh] border border-red-100"
     >
       <div
-        class="flex items-center justify-between p-6 border-b border-teal-50"
+        class="flex items-center justify-between p-6 border-b border-red-50"
       >
         <div class="flex items-center gap-3">
-          <div class="bg-teal-100 rounded-full p-3">
-            <i class="text-xl text-teal-700" :class="props.request && props.request.requestType == 'Receive Stock' ? 'fas fa-truck-loading' : props.request && props.request.requestType == 'Return Stock' ? 'fas fa-undo-alt' : props.request && props.request.requestType == 'Dispatch Stock' ? 'fas fa-truck' :  ''"></i>
+          <div class="bg-red-100 rounded-full p-3">
+            <i class="text-xl text-red-700" :class="props.request && props.request.requestType == 'Receive Stock' ? 'fas fa-truck-loading' : props.request && props.request.requestType == 'Return Stock' ? 'fas fa-undo-alt' : props.request && props.request.requestType == 'Dispatch Stock' ? 'fas fa-truck' :  ''"></i>
           </div>
           <div>
-            <h3 class="text-lg font-bold text-teal-700">
+            <h3 class="text-lg font-bold text-red-700">
               {{ props.request && props.request.requestType == 'Receive Stock' ? 'Receive Stock At Site' : props.request && props.request.requestType == 'Return Stock' ? 'Receive Returned Stock from Site' :  props.request && props.request.requestType == 'Dispatch Stock' ? 'Dispatch Stock to Site' :  '' }} 
             </h3>
             <p class="text-xs text-gray-500">
@@ -24,13 +24,13 @@
         </div>
         <button
           @click="closeModal"
-          class="text-gray-400 hover:text-teal-600"
+          class="text-gray-400 hover:text-red-600"
           aria-label="Close modal"
         >
           <i class="fas fa-times"></i>
         </button>
       </div>
-      <div class="mx-6 p-2 rounded bg-teal-500 text-white flex gap-8 items-center">
+      <div class="mx-6 p-2 rounded bg-red-500 text-white flex gap-8 items-center">
         <div class="flex items-center gap-2">
           <span class="text-xs font-semibold">Request ID:</span>
           <span class="font-semibold">{{ requestId }}</span>
@@ -41,20 +41,20 @@
         <div class="grid grid-cols-2 gap-4">
           <div>
             <div class="text-xs text-gray-500">Site Name</div>
-            <div class="font-semibold text-teal-700">{{ siteName }}</div>
+            <div class="font-semibold text-red-700">{{ siteName }}</div>
           </div>
           <div>
             <div class="text-xs text-gray-500">Site Location</div>
-            <div class="font-semibold text-teal-700">{{ siteLocation }}</div>
+            <div class="font-semibold text-red-700">{{ siteLocation }}</div>
           </div>
 
           <div>
             <div class="text-xs text-gray-500">Requested Date</div>
-            <div class="font-semibold text-teal-700">{{ requestDate }}</div>
+            <div class="font-semibold text-red-700">{{ requestDate }}</div>
           </div>
           <div>
             <div class="text-xs text-gray-500">Expected Date</div>
-            <div class="font-semibold text-teal-700">{{ requestDate }}</div>
+            <div class="font-semibold text-red-700">{{ requestDate }}</div>
           </div>
         </div>
         <div>
@@ -63,23 +63,23 @@
           >
           <div class="text-xs text-gray-700 mb-3">{{ description }}</div>
         </div>
-        <div class="bg-teal-50 rounded-xl p-4 border border-teal-100">
+        <div class="bg-red-50 rounded-xl p-4 border border-red-100">
           <div class="grid grid-cols-2 gap-4">
             <div>
               <div class="text-xs text-gray-500">Category</div>
-              <div class="font-semibold text-teal-700">
+              <div class="font-semibold text-red-700">
                 {{ material.category }}
               </div>
             </div>
             <div>
               <div class="text-xs text-gray-500">Subcategory</div>
-              <div class="font-semibold text-teal-700">
+              <div class="font-semibold text-red-700">
                 {{ material.subcategory }}
               </div>
             </div>
             <div>
               <div class="text-xs text-gray-500">Material</div>
-              <div class="font-semibold text-teal-700">{{ material.name }}</div>
+              <div class="font-semibold text-red-700">{{ material.name }}</div>
             </div>
             <div>
               <div class="text-xs text-gray-500">Quantity</div>
@@ -88,9 +88,9 @@
                   type="number"
                   v-model.number="material.quantity"
                   min="1"
-                  class="w-28 px-2 py-1 border border-teal-200 rounded text-right font-semibold text-teal-700"
+                  class="w-28 px-2 py-1 border border-red-200 rounded text-right font-semibold text-red-700"
                 />
-                <div class="text-teal-700 font-semibold">
+                <div class="text-red-700 font-semibold">
                   {{ material.uom }}
                 </div>
               </div>
@@ -104,14 +104,14 @@
           <textarea
             v-model="acceptanceNotes"
             rows="3"
-            class="w-full border border-teal-200 rounded px-3 py-2 text-xs"
+            class="w-full border border-red-200 rounded px-3 py-2 text-xs"
             :placeholder="props.request && props.request.requestType == 'Dispatch Stock' ? 'Enter check-out comments...' : 'Enter check-in comments...'"
           ></textarea>
         </div>
         <div class="flex justify-end">
           <button
             @click="acceptRequest"
-            class="bg-teal-700 text-white px-5 py-2 rounded-lg font-semibold hover:bg-teal-800"
+            class="bg-red-700 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-800"
           >
             {{ props.request && props.request.requestType == 'Dispatch Stock' ? 'Check-Out' :'Check-In' }} Stock
           </button>

@@ -2,39 +2,39 @@
   <div class="min-h-screen bg-gray-100 flex flex-col">
     <!-- Header -->
     <header
-      class="bg-gradient-to-r from-teal-700 via-teal-500 to-teal-300 shadow-md py-3 px-4 flex items-center justify-between fixed top-0 left-0 w-full z-30">
+      class="bg-gradient-to-r from-red-700 via-red-500 to-red-300 shadow-md py-3 px-4 flex items-center justify-between fixed top-0 left-0 w-full z-30">
       <div class="flex flex-col items-start">
         <div class="flex items-center gap-2">
           <i class="far fa-building text-white text-xl drop-shadow"></i>
-          <span class="text-sm font-bold text-white font-montserrat drop-shadow uppercase">SG ADHAV BUILDERS |
+          <span class="text-sm font-bold text-white font-montserrat drop-shadow uppercase">Xyz BUILDERS |
             Inventory Manager</span>
         </div>
       </div>
       <div class="flex items-center gap-4">
         <!-- Profile Dropdown -->
         <div id="profile-menu" class="relative" @click="profileMenuOpen = !profileMenuOpen">
-          <button class="bg-white text-teal-700 rounded-full p-2 shadow hover:bg-teal-100 transition flex items-center">
+          <button class="bg-white text-red-700 rounded-full p-2 shadow hover:bg-red-100 transition flex items-center">
             <i class="fas fa-user-circle text-xl"></i>
           </button>
           <div v-if="profileMenuOpen" class="absolute right-0 mt-2 w-60 bg-white rounded shadow-lg z-10">
             <ul>
-              <li class="flex items-center px-3 py-2 gap-2 border-b border-teal-100">
-                <span class="flex items-center justify-center w-6 h-6 rounded-full bg-teal-100 text-teal-700 text-lg">
+              <li class="flex items-center px-3 py-2 gap-2 border-b border-red-100">
+                <span class="flex items-center justify-center w-6 h-6 rounded-full bg-red-100 text-red-700 text-lg">
                   <i class="fas fa-user text-[10px]"></i>
                 </span>
                 <div class="flex flex-col justify-center h-full">
-                  <span class="font-semibold text-teal-700 text-sm leading-tight ml-2">{{ user?.displayName || user?.email || 'User' }}</span>
-                  <span class="text-xs text-gray-500 font-medium mt-0.5"><span class="inline-block px-2 py-0.5 rounded bg-teal-50 text-teal-700">{{ role || 'User' }}</span></span>
+                  <span class="font-semibold text-red-700 text-sm leading-tight ml-2">{{ user?.displayName || user?.email || 'User' }}</span>
+                  <span class="text-xs text-gray-500 font-medium mt-0.5"><span class="inline-block px-2 py-0.5 rounded bg-red-50 text-red-700">{{ role || 'User' }}</span></span>
                 </div>
               </li>
               <!-- <li>
-                <button class="text-sm w-full text-left px-4 py-2 hover:bg-teal-50 text-teal-700"
+                <button class="text-sm w-full text-left px-4 py-2 hover:bg-red-50 text-red-700"
                   @click="handleChangePassword">
                   <i class="fas fa-user mr-2 "></i> Change Password
                 </button>
               </li> -->
               <li>
-                <button class="text-sm w-full text-left px-4 py-2 hover:bg-teal-50 text-red-600" @click="handleLogout">
+                <button class="text-sm w-full text-left px-4 py-2 hover:bg-red-50 text-red-600" @click="handleLogout">
                   <i class="fas fa-sign-out-alt mr-2"></i> Logout
                 </button>
               </li>
@@ -52,36 +52,36 @@
       ]">
 
         <!-- <div class="flex flex-row items-center justify-start"> -->
-        <div class=" hover:bg-teal-100 text-teal-600 px-3 py-3 justify-between cursor-pointer"
+        <div class=" hover:bg-red-100 text-red-600 px-3 py-3 justify-between cursor-pointer"
           @click="menuOpen = !menuOpen" :title="menuOpen ? 'Collapse menu' : 'Expand menu'">
           <!-- <i :class="menuOpen ? 'fas fa-angle-left' : 'fas fa-angle-right'"></i> -->
           <i class="fas fa-bars mr-2"></i>
-          <span class="font-medium text-teal-800" v-if="menuOpen">Menu</span>
+          <span class="font-medium text-red-800" v-if="menuOpen">Menu</span>
         </div>
 
 
         <!-- </div> -->
-        <hr class="border-t border-teal-500 my-1" />
+        <hr class="border-t border-red-500 my-1" />
 
         <nav class="flex-1">
 
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'Home')">
             <router-link to="/home"
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1', route.path === '/home' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]">
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1', route.path === '/home' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]">
               <i class="fas fa-chart-pie mr-2"></i>
               <span v-if="menuOpen">Home</span>
             </router-link>
           </div>
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'Inventory')">
             <router-link to="/inventory"
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1', route.path === '/inventory' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]">
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1', route.path === '/inventory' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]">
               <i class="fas fa-boxes-stacked mr-2"></i>
               <span v-if="menuOpen">Inventory</span>
             </router-link>
           </div>
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'Sites')">
             <router-link to="/sites"
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1', route.path === '/sites' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]">
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1', route.path === '/sites' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]">
               <i class="fas fa-building mr-2"></i>
               <span v-if="menuOpen">Sites</span>
             </router-link>
@@ -89,21 +89,21 @@
           
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'Reports')">
             <router-link to="/reports"
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1', route.path === '/reports' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]">
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1', route.path === '/reports' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]">
               <i class="fas fa-chart-bar mr-2"></i>
               <span v-if="menuOpen">Reports</span>
             </router-link>
           </div>
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'Users')">
             <router-link to="/users"
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1', route.path === '/users' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]">
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1', route.path === '/users' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]">
               <i class="fas fa-users mr-2"></i>
               <span v-if="menuOpen">Users</span>
             </router-link>
           </div>
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'StockPresets')">
             <button
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1 w-full text-left', route.path === '/stock-presets' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]"
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1 w-full text-left', route.path === '/stock-presets' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]"
               @click="router.push('/stock-presets')">
               <i class="fas fa-th-list mr-2"></i>
               <span v-if="menuOpen">Stock Presets</span>
@@ -111,7 +111,7 @@
           </div>
           <div class="flex flex-col" v-if="hasPageAccess(role as Role, 'Database')">
             <router-link to="/data"
-              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-teal-100 font-medium mb-1', route.path === '/data' ? 'bg-teal-100 text-teal-900 font-bold' : 'text-teal-700' ]">
+              :class="[ 'flex items-center py-2 px-3 rounded hover:bg-red-100 font-medium mb-1', route.path === '/data' ? 'bg-red-100 text-red-900 font-bold' : 'text-red-700' ]">
               <i class="fas fa-database mr-2"></i>
               <span v-if="menuOpen">Database</span>
             </router-link>

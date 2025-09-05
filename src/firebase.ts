@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC8VdFzzaNpJ3KOFuhpq6T0tsL7XIos7i4",
-  authDomain: "sgadhav-inventory.firebaseapp.com",
-  projectId: "sgadhav-inventory",
-  storageBucket: "sgadhav-inventory.firebasestorage.app",
-  messagingSenderId: "1069908384107",
-  appId: "1:1069908384107:web:42d0456d3571560cab942e"
+  apiKey: "AIzaSyAp1dlV-elX9POrcRvsqqCGHdwKQrRRMOo",
+  authDomain: "sgadhavtesting-f0c9a.firebaseapp.com",
+  projectId: "sgadhavtesting-f0c9a",
+  storageBucket: "sgadhavtesting-f0c9a.firebasestorage.app",
+  messagingSenderId: "789080714751",
+  appId: "1:789080714751:web:53fc95907fd21f816d8bca"
 };
 
 const app = initializeApp(firebaseConfig);

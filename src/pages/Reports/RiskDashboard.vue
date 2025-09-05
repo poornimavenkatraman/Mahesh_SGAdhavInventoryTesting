@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2  min-h-screen bg-teal-50/30">
+  <div class="p-2  min-h-screen bg-red-50/30">
     <nav
       class="flex items-center p-2 mb-3"
       aria-label="Breadcrumb"
@@ -9,19 +9,19 @@
         <li>
           <router-link
             to="/reports"
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px] hover:bg-teal-200 transition"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px] hover:bg-red-200 transition"
           >
             <i class="fas fa-chart-bar mr-1 text-[11px]"></i> Reports
           </router-link>
         </li>
         <li>
-          <span class="mx-1 text-teal-400">
+          <span class="mx-1 text-red-400">
             <i class="fas fa-chevron-right text-[10px]"></i>
           </span>
         </li>
         <li>
           <span
-            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-teal-700 font-semibold text-[9px]"
+            class="inline-flex items-center px-2 py-1 rounded-full bg-white text-red-700 font-semibold text-[9px]"
             aria-current="page"
           >
             <i class="fas fa-cubes mr-1 text-[11px]"></i> Risk Dashboard
@@ -33,11 +33,11 @@
     <div class="flex items-center justify-between p-2">
       <div class="flex items-center gap-3">
         <div
-          class="bg-teal-200 rounded-full p-2 flex items-center justify-center"
+          class="bg-red-200 rounded-full p-2 flex items-center justify-center"
         >
-          <i class="fas fa-exclamation-triangle text-lg text-teal-700"></i>
+          <i class="fas fa-exclamation-triangle text-lg text-red-700"></i>
         </div>
-        <h2 class="text-lg font-bold text-teal-700 tracking-tight">
+        <h2 class="text-lg font-bold text-red-700 tracking-tight">
           Risk Dashboard
         </h2>
       </div>
@@ -92,7 +92,7 @@
         </select>
 
         <button
-          class="px-3 py-2 rounded-xl bg-teal-50 hover:bg-teal-200 text-teal-700 text-xs font-semibold shadow transition"
+          class="px-3 py-2 rounded-xl bg-red-50 hover:bg-red-200 text-red-700 text-xs font-semibold shadow transition"
           @click="load"
         >
           <i class="fas fa-filter mr-1"></i> Apply
@@ -104,34 +104,34 @@
       <!-- KPI cards -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <div
-          class="rounded border border-teal-100 shadow bg-white p-4 flex flex-col items-center"
+          class="rounded border border-red-100 shadow bg-white p-4 flex flex-col items-center"
         >
           <div class="text-xs text-gray-600 mb-1">Low HO Stock</div>
-          <div class="text-3xl font-bold text-teal-700">{{ lowHO.length }}</div>
+          <div class="text-3xl font-bold text-red-700">{{ lowHO.length }}</div>
         </div>
         <div
-          class="rounded border border-teal-100 shadow bg-white p-4 flex flex-col items-center"
+          class="rounded border border-red-100 shadow bg-white p-4 flex flex-col items-center"
         >
           <div class="text-xs text-gray-600 mb-1">Low Site Stock</div>
-          <div class="text-3xl font-bold text-teal-700">
+          <div class="text-3xl font-bold text-red-700">
             {{ lowSite.length }}
           </div>
         </div>
         <div
-          class="rounded border border-teal-100 shadow bg-white p-4 flex flex-col items-center"
+          class="rounded border border-red-100 shadow bg-white p-4 flex flex-col items-center"
         >
           <div class="text-xs text-gray-600 mb-1">
             Aging (≥ {{ agingDays }}d)
           </div>
-          <div class="text-3xl font-bold text-teal-700">{{ aging.length }}</div>
+          <div class="text-3xl font-bold text-red-700">{{ aging.length }}</div>
         </div>
         <div
-          class="rounded border border-teal-100 shadow bg-white p-4 flex flex-col items-center"
+          class="rounded border border-red-100 shadow bg-white p-4 flex flex-col items-center"
         >
           <div class="text-xs text-gray-600 mb-1">
             Pending Supplier (≥ {{ pendingDays }}d)
           </div>
-          <div class="text-3xl font-bold text-teal-700">
+          <div class="text-3xl font-bold text-red-700">
             {{ pending.length }}
           </div>
         </div>
@@ -139,14 +139,14 @@
 
       <!-- Low HO -->
       <section
-        class="rounded border border-teal-100 shadow bg-white overflow-hidden mb-6"
+        class="rounded border border-red-100 shadow bg-white overflow-hidden mb-6"
       >
-        <div class="flex items-center justify-between px-4 py-3 bg-teal-50">
-          <h3 class="font-semibold text-teal-700 text-xs">
+        <div class="flex items-center justify-between px-4 py-3 bg-red-50">
+          <h3 class="font-semibold text-red-700 text-xs">
             Low HO Stock (≤ {{ hoThreshold }})
           </h3>
           <button
-            class="px-2 py-1 text-xs rounded bg-teal-50 hover:bg-teal-200 text-teal-700 font-semibold shadow transition"
+            class="px-2 py-1 text-xs rounded bg-red-50 hover:bg-red-200 text-red-700 font-semibold shadow transition"
             :disabled="!lowHO.length"
             @click="exportCSV('ho')"
           >
@@ -168,17 +168,17 @@
 
       <!-- Low Site -->
       <section
-        class="rounded border border-teal-100 shadow bg-white overflow-hidden mb-6"
+        class="rounded border border-red-100 shadow bg-white overflow-hidden mb-6"
       >
-        <div class="flex items-center justify-between px-4 py-3 bg-teal-50">
-          <h3 class="font-semibold text-teal-700 text-xs">
+        <div class="flex items-center justify-between px-4 py-3 bg-red-50">
+          <h3 class="font-semibold text-red-700 text-xs">
             Low Site Stock (≤ {{ siteThreshold }})
             <span v-if="selectedSiteLabel" class="text-gray-600 font-normal"
               >— {{ selectedSiteLabel }}</span
             >
           </h3>
           <button
-            class="px-2 py-1 text-xs rounded bg-teal-50 hover:bg-teal-200 text-teal-700 font-semibold shadow transition"
+            class="px-2 py-1 text-xs rounded bg-red-50 hover:bg-red-200 text-red-700 font-semibold shadow transition"
             :disabled="!lowSite.length"
             @click="exportCSV('site')"
           >
@@ -200,14 +200,14 @@
 
       <!-- Aging -->
       <section
-        class="rounded border border-teal-100 shadow bg-white overflow-hidden mb-6"
+        class="rounded border border-red-100 shadow bg-white overflow-hidden mb-6"
       >
-        <div class="flex items-center justify-between px-4 py-3 bg-teal-50">
-          <h3 class="font-semibold text-teal-700 text-xs">
+        <div class="flex items-center justify-between px-4 py-3 bg-red-50">
+          <h3 class="font-semibold text-red-700 text-xs">
             Aging (≥ {{ agingDays }} days)
           </h3>
           <button
-            class="px-2 py-1 text-xs rounded bg-teal-50 hover:bg-teal-200 text-teal-700 font-semibold shadow transition"
+            class="px-2 py-1 text-xs rounded bg-red-50 hover:bg-red-200 text-red-700 font-semibold shadow transition"
             :disabled="!aging.length"
             @click="exportCSV('aging')"
           >
@@ -229,14 +229,14 @@
 
       <!-- Pending Supplier -->
       <section
-        class="rounded border border-teal-100 shadow bg-white overflow-hidden mb-6"
+        class="rounded border border-red-100 shadow bg-white overflow-hidden mb-6"
       >
-        <div class="flex items-center justify-between px-4 py-3 bg-teal-50">
-          <h3 class="font-semibold text-teal-700 text-xs">
+        <div class="flex items-center justify-between px-4 py-3 bg-red-50">
+          <h3 class="font-semibold text-red-700 text-xs">
             Pending Supplier Requests (≥ {{ pendingDays }} days open)
           </h3>
           <button
-            class="px-2 py-1 text-xs rounded bg-teal-50 hover:bg-teal-200 text-teal-700 font-semibold shadow transition"
+            class="px-2 py-1 text-xs rounded bg-red-50 hover:bg-red-200 text-red-700 font-semibold shadow transition"
             :disabled="!pending.length"
             @click="exportCSV('pending')"
           >

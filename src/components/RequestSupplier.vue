@@ -126,23 +126,23 @@ async function submitRequest() {
     <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-lg relative overflow-y-auto max-h-[90vh]">
       <button
         @click="emit('close')"
-        class="absolute top-4 right-4 text-gray-400 hover:text-teal-600 text-base"
+        class="absolute top-4 right-4 text-gray-400 hover:text-red-600 text-base"
         title="Close"
       >
         <i class="fas fa-times"></i>
       </button>
       <div class="flex flex-col items-center mb-6">
-        <div class="w-12 h-12 bg-teal-200 rounded-full flex items-center justify-center mb-2">
-          <i class="fas fa-boxes-stacked text-xl text-teal-600"></i>
+        <div class="w-12 h-12 bg-red-200 rounded-full flex items-center justify-center mb-2">
+          <i class="fas fa-boxes-stacked text-xl text-red-600"></i>
         </div>
-        <h2 class="text-xl font-bold text-teal-700 mb-1">Request Supplier fo Re-Stocking</h2>
+        <h2 class="text-xl font-bold text-red-700 mb-1">Request Supplier fo Re-Stocking</h2>
         <span class="text-gray-500 text-xs">Enter details to request supplier for restocking!</span>
       </div>
       <form @submit.prevent="submitRequest">
         <div class="mb-4 flex gap-4">
           <div class="flex-1">
-              <label class="block font-semibold text-teal-700 mb-1">Supplier <span class="text-red-500">*</span></label>
-            <select v-model="form.supplier" required class="w-full border border-teal-200 rounded px-3 py-2">
+              <label class="block font-semibold text-red-700 mb-1">Supplier <span class="text-red-500">*</span></label>
+            <select v-model="form.supplier" required class="w-full border border-red-200 rounded px-3 py-2">
               <option value="">Select Supplier</option>
               <option v-for="s in suppliers" :key="s.id" :value="s.id">{{ s.suppliers_name }}</option>
             </select>
@@ -151,15 +151,15 @@ async function submitRequest() {
         <!-- Category & Subcategory -->
         <div class="mb-4 flex gap-4">
           <div class="flex-1">
-              <label class="block font-semibold text-teal-700 mb-1">Category <span class="text-red-500">*</span></label>
-            <select v-model="form.category" required class="w-full border border-teal-200 rounded px-3 py-2">
+              <label class="block font-semibold text-red-700 mb-1">Category <span class="text-red-500">*</span></label>
+            <select v-model="form.category" required class="w-full border border-red-200 rounded px-3 py-2">
               <option value="">Select Category</option>
               <option v-for="c in categories" :key="c.id" :value="c.id">{{ c.name }}</option>
             </select>
           </div>
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1">Subcategory <span class="text-red-500">*</span></label>
-            <select v-model="form.subcategory" required class="w-full border border-teal-200 rounded px-3 py-2">
+            <label class="block font-semibold text-red-700 mb-1">Subcategory <span class="text-red-500">*</span></label>
+            <select v-model="form.subcategory" required class="w-full border border-red-200 rounded px-3 py-2">
               <option value="">Select Subcategory</option>
               <option v-for="sc in subcategories" :key="sc.id" :value="sc.id">{{ sc.name }}</option>
             </select>
@@ -168,39 +168,39 @@ async function submitRequest() {
         <!-- Material & Quantity -->
         <div class="mb-4 flex gap-4 items-end">
           <div class="flex-1">
-              <label class="block font-semibold text-teal-700 mb-1">Material <span class="text-red-500">*</span></label>
-            <select v-model="form.material" required class="w-full border border-teal-200 rounded px-3 py-2">
+              <label class="block font-semibold text-red-700 mb-1">Material <span class="text-red-500">*</span></label>
+            <select v-model="form.material" required class="w-full border border-red-200 rounded px-3 py-2">
               <option value="">Select Material</option>
               <option v-for="p in materials" :key="p.id" :value="p.id">{{ p.name }}</option>
             </select>
           </div>
           <div class="flex-1">
-              <label class="block font-semibold text-teal-700 mb-1">Quantity <span class="text-red-500">*</span></label>
+              <label class="block font-semibold text-red-700 mb-1">Quantity <span class="text-red-500">*</span></label>
             <div class="relative">
-              <input v-model="form.quantity" required type="number" min="1" class="w-full border border-teal-200 rounded px-3 py-2 pr-12" />
-              <span class="absolute right-3 top-1/2 -translate-y-1/2 text-teal-700 font-semibold">{{ selectedUom || "PCS" }}</span>
+              <input v-model="form.quantity" required type="number" min="1" class="w-full border border-red-200 rounded px-3 py-2 pr-12" />
+              <span class="absolute right-3 top-1/2 -translate-y-1/2 text-red-700 font-semibold">{{ selectedUom || "PCS" }}</span>
             </div>
           </div>
         </div>
         <!-- Dates -->
         <div class="mb-4 flex gap-4">
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1">Request Date</label>
-            <input v-model="form.requestDate" required type="date" class="w-full border border-teal-200 rounded px-3 py-2" />
+            <label class="block font-semibold text-red-700 mb-1">Request Date</label>
+            <input v-model="form.requestDate" required type="date" class="w-full border border-red-200 rounded px-3 py-2" />
           </div>
           <div class="flex-1">
-            <label class="block font-semibold text-teal-700 mb-1">Expected Delivery Date</label>
-            <input v-model="form.deliveryDate" type="date" class="w-full border border-teal-200 rounded px-3 py-2" />
+            <label class="block font-semibold text-red-700 mb-1">Expected Delivery Date</label>
+            <input v-model="form.deliveryDate" type="date" class="w-full border border-red-200 rounded px-3 py-2" />
           </div>
         </div>
         <!-- Comments -->
         <div class="mb-4">
-            <label class="block font-semibold text-teal-700 mb-1">Comments <span class="text-red-500">*</span></label>
-          <textarea v-model="form.comments" required rows="2" class="w-full border border-teal-200 rounded px-3 py-2"></textarea>
+            <label class="block font-semibold text-red-700 mb-1">Comments <span class="text-red-500">*</span></label>
+          <textarea v-model="form.comments" required rows="2" class="w-full border border-red-200 rounded px-3 py-2"></textarea>
         </div>
         <div class="flex justify-end gap-2 mt-4">
           <button type="button" @click="emit('close')" class="px-4 py-2 rounded bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300">Cancel</button>
-          <button type="submit" class="px-4 py-2 rounded bg-teal-600 text-white font-semibold hover:bg-teal-700">Request</button>
+          <button type="submit" class="px-4 py-2 rounded bg-red-600 text-white font-semibold hover:bg-red-700">Request</button>
         </div>
       </form>
     </div>

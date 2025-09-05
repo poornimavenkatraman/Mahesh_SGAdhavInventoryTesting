@@ -3,30 +3,30 @@
     <div class="w-full max-w-lg bg-white rounded-xl shadow-lg relative p-6">
       <button
         @click="$emit('close')"
-        class="absolute top-4 right-4 text-gray-400 hover:text-teal-600 text-base"
+        class="absolute top-4 right-4 text-gray-400 hover:text-red-600 text-base"
         aria-label="Close"
       >
         <i class="fas fa-times"></i>
       </button>
-      <!-- <h2 class="text-lg font-bold text-teal-700 mb-4 flex items-center gap-2">
-        <i class="fas fa-layer-group text-teal-500"></i>
+      <!-- <h2 class="text-lg font-bold text-red-700 mb-4 flex items-center gap-2">
+        <i class="fas fa-layer-group text-red-500"></i>
         Order Bulk Stock from HO (Presets)
       </h2> -->
       <div
         class="relative w-full flex flex-col items-center justify-center py-4 px-2 rounded-t-xl"
       >
       <div
-          class="bg-teal-200 rounded-full p-3 flex items-center justify-center shadow mb-2 mx-auto"
+          class="bg-red-200 rounded-full p-3 flex items-center justify-center shadow mb-2 mx-auto"
         >
-          <i class="fas fa-layer-group text-lg text-teal-600"></i>
+          <i class="fas fa-layer-group text-lg text-red-600"></i>
         </div>
         <div class="w-full text-center">
-          <div class="text-xl font-bold text-teal-700">{{ actionType }} Bulk Stock from HO</div>
+          <div class="text-xl font-bold text-red-700">{{ actionType }} Bulk Stock from HO</div>
           <div class="text-xs text-gray-500">Select presets to prepare your request form</div>
         </div>
       </div>
       <div class="mb-6">
-        <label class="block text-xs font-semibold text-teal-700 mb-2">Select Site</label>
+        <label class="block text-xs font-semibold text-red-700 mb-2">Select Site</label>
         <Dropdown
           v-model="selectedSite"
           :options="siteOptions"
@@ -34,11 +34,11 @@
           optionValue="value"
           :disabled="!!props.siteId"
           :placeholder="props.siteId ? siteOptions.find(s => s.value === props.siteId)?.label : 'Select site...'"
-          class="w-full bg-white border border-teal-300 rounded-lg shadow focus:ring-2 focus:ring-teal-400"
+          class="w-full bg-white border border-red-300 rounded-lg shadow focus:ring-2 focus:ring-red-400"
         />
       </div>
       <div class="mb-6 mt-4">
-        <label class="block text-xs font-semibold text-teal-700 mb-2"
+        <label class="block text-xs font-semibold text-red-700 mb-2"
           >Select Categories & Subcategories (Presets)</label
         >
         <MultiSelect
@@ -50,10 +50,10 @@
           optionGroupChildren="items"
           
           placeholder="Search and select..."
-          class="w-full bg-white border border-teal-300 rounded-lg shadow focus:ring-2 focus:ring-teal-400"
+          class="w-full bg-white border border-red-300 rounded-lg shadow focus:ring-2 focus:ring-red-400"
         />
       </div>
-        <button @click="proceedToNextStep" :disabled="!selectedOptions.length" class="w-20 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded shadow transition text-xs font-semibold mx-auto block">
+        <button @click="proceedToNextStep" :disabled="!selectedOptions.length" class="w-20 py-2 bg-red-600 hover:bg-red-700 text-white rounded shadow transition text-xs font-semibold mx-auto block">
           Next
         </button>
     </div>

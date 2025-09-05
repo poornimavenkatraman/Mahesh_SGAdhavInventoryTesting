@@ -16,22 +16,22 @@ const showBulkStock = ref(false); // Add state for Bulk Stock modal
     <div class="w-full bg-white shadow-sm rounded-xl">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
-          <div class="bg-teal-200 rounded-full p-2">
-            <i class="fas fa-box-open text-xl text-teal-700"></i>
+          <div class="bg-red-200 rounded-full p-2">
+            <i class="fas fa-box-open text-xl text-red-700"></i>
           </div>
-          <h2 class="text-lg font-bold text-teal-700">Inventory</h2>
+          <h2 class="text-lg font-bold text-red-700">Inventory</h2>
         </div>
         <div class="flex items-center gap-3">
 
           <!-- Add Stock Icon Button -->
-          <!-- <button class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition"
+          <!-- <button class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition"
             title="Add Stock" @click="showAddStock = true">
             <i class="fas fa-boxes-stacked"></i>
           </button> -->
 
           <!-- Add Bulk Stock Icon Button (redirects to page) -->
           <!-- <router-link to="/inventory/add-bulk-stock?actionType=Add"
-            class="bg-teal-100 hover:bg-teal-200 text-teal-700 rounded-full p-3 shadow transition flex items-center justify-center"
+            class="bg-red-100 hover:bg-red-200 text-red-700 rounded-full p-3 shadow transition flex items-center justify-center"
             title="Bulk Add Stock">
             <i class="fas fa-cubes-stacked"></i>
           </router-link> -->
